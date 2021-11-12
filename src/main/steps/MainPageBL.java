@@ -1,7 +1,10 @@
 package steps;
 
 public class MainPageBL {
-    public HeaderPageBL getHeaderPageBL() {
-        return new HeaderPageBL();
+    public HeaderPageUnloginedBL getHeaderPageUnloginedBL() {
+        return new HeaderPageUnloginedBL();
+    }
+    public HeaderPageLoginedBL getHeaderPageLoginedBL() {
+        return new HeaderPageLoginedBL();
     }
 }
