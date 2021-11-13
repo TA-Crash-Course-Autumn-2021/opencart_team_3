@@ -12,7 +12,7 @@ public class UserRegisterTest extends BaseTest {
     public void registerUserWithValidParameters() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         MainPageBL mainPageBL = new MainPageBL();
-        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
+        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageUnloginedBL()
                 .clickOnMyAccountButton()
                 .clickOnRegisterButton()
                 .registerNewPerson();
