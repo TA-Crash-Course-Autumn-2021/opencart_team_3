@@ -6,17 +6,18 @@ public class HeaderPageBL {
 
     private HeaderPage headerPage;
 
-    public HeaderPageBL() {
+    public HeaderPageBL(){
         headerPage = new HeaderPage();
     }
 
-    public HeaderPageBL clickOnMyAccountButton() {
-        headerPage.getMyAccountButton().click();
+    public HeaderPageBL clickOnWishListButton() {
+        headerPage.getWishListButton().click();
         return this;
     }
 
-    public RegisterPageBL clickOnRegisterButton() {
+    /*public HeaderPageBL clickOnRegisterButton() {
         headerPage.getRegisterButton().click();
         return new RegisterPageBL();
-    }
+    }*/
+
 }

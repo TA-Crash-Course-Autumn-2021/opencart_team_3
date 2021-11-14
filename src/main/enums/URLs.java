@@ -1,15 +1,17 @@
 package enums;
 
 public enum URLs {
-    BASE_URL("http://localhost/opencart/upload/index.php");
 
-    private final String value;
+    BASE_URL("https://demo.opencart.com/");
 
-    URLs(String value) {
+    private String value;
+
+    private URLs(String value){
         this.value = value;
     }
 
-    public String getValue() {
-        return value;
+    public String getValue(){
+        return this.value;
     }
+
 }

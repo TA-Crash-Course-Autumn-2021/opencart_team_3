@@ -6,26 +6,24 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverRepository {
 
-    public static final ThreadLocal<WebDriver> DRIVERS = new ThreadLocal<>(); //thread safety
-    private static WebDriver webDriver;
+    public static final ThreadLocal<WebDriver> DRIVERS = new ThreadLocal<>();
+    private static WebDriver driver;
 
-    private DriverRepository() {
+    private DriverRepository(){
+
     }
 
-    public static void downloadWebDriver() {
+    public static void downloadWebDriver(){
         WebDriverManager.chromedriver().setup();
     }
 
-    public static void instanceWebBrowser() {
-        webDriver = new ChromeDriver();
-
-
-        DRIVERS.set(webDriver);
+    public static void instanceWebBrowser(){
+        driver = new ChromeDriver();
+        DRIVERS.set(driver);
     }
 
-    public static void closeBrowser() {
-        webDriver.quit();
+    public static void closeWebBrowser(){
+        driver.quit();
     }
+
 }
-
-
