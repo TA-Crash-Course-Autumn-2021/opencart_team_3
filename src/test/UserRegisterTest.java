@@ -1,6 +1,6 @@
-import enums.URLs;
 import navigation.Navigation;
 import org.testng.annotations.Test;
+import steps.ComparePageBL;
 import steps.MainPageBL;
 import steps.RegisterPageBL;
 

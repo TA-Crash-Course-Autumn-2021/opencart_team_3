@@ -7,4 +7,12 @@ public class MainPageBL {
     public HeaderPageLoginedBL getHeaderPageLoginedBL() {
         return new HeaderPageLoginedBL();
     }
+
+    public SearchFieldBL getSearchField() {
+        return new SearchFieldBL();
+    }
+
+    public ComparePageBL getComparePageBL() {
+        return new ComparePageBL();
+    }
 }
