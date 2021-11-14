@@ -1,6 +1,6 @@
-import enums.URLs;
 import navigation.Navigation;
 import org.testng.annotations.Test;
+import steps.ComparePageBL;
 import steps.MainPageBL;
 import steps.RegisterPageBL;
 
@@ -12,7 +12,7 @@ public class UserRegisterTest extends BaseTest {
     public void registerUserWithValidParameters() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         MainPageBL mainPageBL = new MainPageBL();
-        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageUnloginedBL()
+        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageBL()
                 .clickOnMyAccountButton()
                 .clickOnRegisterButton()
                 .registerNewPerson();
