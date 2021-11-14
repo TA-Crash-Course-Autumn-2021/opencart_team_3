@@ -1,6 +1,5 @@
 package steps;
 
-import org.testng.Assert;
 import pages.ComparePage;
 import pages.EmptyComparePage;
 import pages.SuccessfulAddingToComparePageAlertPage;
@@ -30,7 +29,7 @@ public class ComparePageBL {
     private void clickOnAddToCartButton(String productName) {
 
         for (int i = 0; i < comparePage.getProducts().size(); i++) {
-            if(comparePage.getProducts().get(i).getText().equals(productName)) {
+            if (comparePage.getProducts().get(i).getText().equals(productName)) {
                 comparePage.getAddToCartButtons().get(i).click();
                 break;
             }
@@ -45,7 +44,7 @@ public class ComparePageBL {
     private void clickOnRemoveButton(String productName) {
 
         for (int i = 0; i < comparePage.getProducts().size(); i++) {
-            if(comparePage.getProducts().get(i).getText().equals(productName)) {
+            if (comparePage.getProducts().get(i).getText().equals(productName)) {
                 comparePage.getRemoveButtons().get(i).click();
                 isComparePageEmpty();
                 break;
@@ -59,7 +58,7 @@ public class ComparePageBL {
 
     private ComparePageBL isComparePageEmpty() {
 
-        if(comparePage.getProducts().size() == 0) {
+        if (comparePage.getProducts().size() == 0) {
             emptyComparePage = new EmptyComparePage();
             emptyComparePage.getContinueButton().click();
         }

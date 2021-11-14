@@ -1,12 +1,15 @@
 package steps;
 
 import datamodel.EditAccountModel;
+import org.testng.Assert;
 import pages.EditAccountInformationPage;
+import pages.SuccessEditAccountPage;
 import repository.EditAccountModelRepository;
 
 public class EditAccountInformationPageBL {
 
     private EditAccountInformationPage editAccountInformationPage;
+    private SuccessEditAccountPage successEditAccountPage;
 
     public EditAccountInformationPageBL() {
         editAccountInformationPage = new EditAccountInformationPage();
@@ -19,6 +22,8 @@ public class EditAccountInformationPageBL {
         inputEmail(editAccountModel.getEmail());
         inputTelephone(editAccountModel.getTelephone());
         clickOnContinueButton();
+
+        successEditAccountPage = new SuccessEditAccountPage();
         return this;
     }
 
@@ -48,6 +53,12 @@ public class EditAccountInformationPageBL {
 
     private void clickOnBackButton() {
         editAccountInformationPage.getBackButton().click();
+    }
+
+
+    public void verifyEditAccount() {
+        String expectedMessage = "Success: Your account has been successfully updated.";
+        Assert.assertEquals(successEditAccountPage.getSuccessTitle().getText(), expectedMessage, "Incorrect page title");
     }
 
 }
