@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverRepository {
 
-    public static final ThreadLocal<WebDriver> DRIVERS = new ThreadLocal<>(); //thread safety
+    public static final ThreadLocal<WebDriver> DRIVERS = new ThreadLocal<>();
     private static WebDriver webDriver;
 
     private DriverRepository() {
