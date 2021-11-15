@@ -53,4 +53,9 @@ public class MyAccountPageBL {
     public EditAccountInformationPageBL getEditAccountInformationPageBL() {
         return new EditAccountInformationPageBL();
     }
+
+    public ChangePasswordPageBL getChangePasswordPageBL() {
+        return new ChangePasswordPageBL();
+    }
+
 }

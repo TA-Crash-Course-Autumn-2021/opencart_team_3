@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class MenuPage extends BasePage{
+public class MenuPage extends BasePage {
     @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[1]")
     private WebElement desktopsMenuButton;
     @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[1]//a[@class = 'see-all")
@@ -35,7 +35,7 @@ public class MenuPage extends BasePage{
     private WebElement softwareMenuButton;
 
     @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[6]")
-    private WebElement phoneAndPDAsMenuButton;
+    private WebElement phonesAndPDAsMenuButton;
 
     @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[7]")
     private WebElement camerasMenuButton;
@@ -50,29 +50,35 @@ public class MenuPage extends BasePage{
     public WebElement getDesktopsMenuButton() {
         return desktopsMenuButton;
     }
+
     public WebElement getsSeeAllDesktopsMenuButton() {
         return seeAllDesktopsMenuButton;
     }
+
     public WebElement getDesktopsMenuButtons(int value) {
-            return desktopsMenuButtons.get(value);
+        return desktopsMenuButtons.get(value);
     }
 
-    public WebElement getLaptopsAndNetobooksMenuButton() {
+    public WebElement getLaptopsAndNotebooksMenuButton() {
         return laptopsAndNotebooksMenuButton;
     }
-    public WebElement getSeeAllLaptopsAndNetobooksMenuButton() {
+
+    public WebElement getSeeAllLaptopsAndNotebooksMenuButton() {
         return seeAllLaptopsAndNotebooksMenuButton;
     }
-    public WebElement getLaptopsAndNetobooksMenuButtons(int value) {
+
+    public WebElement getLaptopsAndNotebooksMenuButtons(int value) {
         return laptopsAndNotebooksMenuButtons.get(value);
     }
 
     public WebElement getComponentsMenuButton() {
         return componentsMenuButton;
     }
+
     public WebElement getSeeAllComponentsMenuButton() {
         return seeAllComponentsMenuButton;
     }
+
     public WebElement getComponentsMenuButtons(int value) {
         return componentsMenuButtons.get(value);
     }
@@ -84,8 +90,9 @@ public class MenuPage extends BasePage{
     public WebElement getSoftwareMenuButton() {
         return softwareMenuButton;
     }
-    public WebElement getPhoneAndPDAsMenuButton() {
-        return phoneAndPDAsMenuButton;
+
+    public WebElement getPhonesAndPDAsMenuButton() {
+        return phonesAndPDAsMenuButton;
     }
 
     public WebElement getCamerasMenuButton() {
@@ -95,9 +102,11 @@ public class MenuPage extends BasePage{
     public WebElement getMp3PlayersMenuButton() {
         return mp3PlayersMenuButton;
     }
+
     public WebElement getSeeAllMp3PlayersMenuButton() {
         return seeAllMp3PlayersMenuButton;
     }
+
     public WebElement getMp3PlayersMenuButtons(int value) {
         return mp3PlayersMenuButtons.get(value);
     }
