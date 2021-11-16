@@ -24,6 +24,13 @@ public class HeaderPageLogined extends BasePage {
     @FindBy(xpath = "//ul[contains(@class,'dropdown-menu dropdown')]//a[text() = 'Logout']")
     private WebElement logoutButton;
 
+    @FindBy(xpath = "//ul[@class='list-inline']/li[5]")
+    private WebElement checkoutButton;
+
+    @FindBy(xpath = "//nav//i[@class='fa fa-shopping-cart']")
+    private WebElement cartButton;
+
+
     public WebElement getMyAccountButton() {
         wait.until(ExpectedConditions.visibilityOf(myAccountButton));
         return myAccountButton;
@@ -47,5 +54,9 @@ public class HeaderPageLogined extends BasePage {
 
     public WebElement getLogoutButton() {
         return logoutButton;
+    }
+
+    public WebElement getCheckoutButton() {
+        return checkoutButton;
     }
 }
