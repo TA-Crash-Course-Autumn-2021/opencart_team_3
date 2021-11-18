@@ -6,79 +6,73 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class MenuPage extends BasePage {
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[1]")
+public class MenuPage extends BasePage{
+    @FindBy(xpath = "//a[text()='Desktops']")
     private WebElement desktopsMenuButton;
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[1]//a[@class = 'see-all")
+    @FindBy(xpath = "//a[text()='Show All Desktops']")
     private WebElement seeAllDesktopsMenuButton;
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[1]//li")
+    @FindBy(xpath = "//a[text()='Desktops']/..//li")
     private List<WebElement> desktopsMenuButtons;
 
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[2]")
+    @FindBy(xpath = "//a[text()='Laptops & Notebooks']")
     private WebElement laptopsAndNotebooksMenuButton;
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[2]//a[@class = 'see-all")
+    @FindBy(xpath = "//a[text()='Show All Laptops & Notebooks")
     private WebElement seeAllLaptopsAndNotebooksMenuButton;
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[2]//li")
+    @FindBy(xpath = "//a[text()='Laptops & Notebooks']/..//li")
     private List<WebElement> laptopsAndNotebooksMenuButtons;
 
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[3]")
+    @FindBy(xpath = "//a[text()='Components']")
     private WebElement componentsMenuButton;
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[3]//a[@class = 'see-all")
+    @FindBy(xpath = "//a[text()='Show All Components']")
     private WebElement seeAllComponentsMenuButton;
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[3]//li")
+    @FindBy(xpath = "//a[text()='Components/..//li")
     private List<WebElement> componentsMenuButtons;
 
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[4]")
+    @FindBy(xpath = "//a[text()='Tablets']")
     private WebElement tabletsMenuButton;
 
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[5]")
+    @FindBy(xpath = "//a[text()='Software']")
     private WebElement softwareMenuButton;
 
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[6]")
-    private WebElement phonesAndPDAsMenuButton;
+    @FindBy(xpath = "//a[text()='Phones & PDAs']")
+    private WebElement phoneAndPDAsMenuButton;
 
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[7]")
+    @FindBy(xpath = "//a[text()='Cameras']")
     private WebElement camerasMenuButton;
 
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[8]")
+    @FindBy(xpath = "//a[text()='MP3 Players']")
     private WebElement mp3PlayersMenuButton;
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[8]//a[@class = 'see-all")
+    @FindBy(xpath = "//a[text()='Show All MP3 Players']")
     private WebElement seeAllMp3PlayersMenuButton;
-    @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[8]//li")
+    @FindBy(xpath = "//a[text()='MP3 Players']/..//li")
     private List<WebElement> mp3PlayersMenuButtons;
 
     public WebElement getDesktopsMenuButton() {
         return desktopsMenuButton;
     }
-
     public WebElement getsSeeAllDesktopsMenuButton() {
         return seeAllDesktopsMenuButton;
     }
-
     public WebElement getDesktopsMenuButtons(int value) {
-        return desktopsMenuButtons.get(value);
+            return desktopsMenuButtons.get(value);
     }
 
-    public WebElement getLaptopsAndNotebooksMenuButton() {
+    public WebElement getLaptopsAndNetobooksMenuButton() {
         return laptopsAndNotebooksMenuButton;
     }
-
-    public WebElement getSeeAllLaptopsAndNotebooksMenuButton() {
+    public WebElement getSeeAllLaptopsAndNetobooksMenuButton() {
         return seeAllLaptopsAndNotebooksMenuButton;
     }
-
-    public WebElement getLaptopsAndNotebooksMenuButtons(int value) {
+    public WebElement getLaptopsAndNetobooksMenuButtons(int value) {
         return laptopsAndNotebooksMenuButtons.get(value);
     }
 
     public WebElement getComponentsMenuButton() {
         return componentsMenuButton;
     }
-
     public WebElement getSeeAllComponentsMenuButton() {
         return seeAllComponentsMenuButton;
     }
-
     public WebElement getComponentsMenuButtons(int value) {
         return componentsMenuButtons.get(value);
     }
@@ -90,9 +84,8 @@ public class MenuPage extends BasePage {
     public WebElement getSoftwareMenuButton() {
         return softwareMenuButton;
     }
-
-    public WebElement getPhonesAndPDAsMenuButton() {
-        return phonesAndPDAsMenuButton;
+    public WebElement getPhoneAndPDAsMenuButton() {
+        return phoneAndPDAsMenuButton;
     }
 
     public WebElement getCamerasMenuButton() {
@@ -102,11 +95,9 @@ public class MenuPage extends BasePage {
     public WebElement getMp3PlayersMenuButton() {
         return mp3PlayersMenuButton;
     }
-
     public WebElement getSeeAllMp3PlayersMenuButton() {
         return seeAllMp3PlayersMenuButton;
     }
-
     public WebElement getMp3PlayersMenuButtons(int value) {
         return mp3PlayersMenuButtons.get(value);
     }
