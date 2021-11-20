@@ -64,7 +64,7 @@ public class MenuPageBL {
         return this;
     }
 
-    public MenuPageBL clickOnPhoneAndPDAsMenuButton() {
+    public MenuPageBL clickOnPhonesAndPDAsMenuButton() {
         MenuPage.getPhonesAndPDAsMenuButton().click();
         return this;
     }
