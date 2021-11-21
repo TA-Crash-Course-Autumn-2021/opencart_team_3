@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RegisterPage extends BasePage {
+public class RegisterPage extends  BasePage{
 
     @FindBy(id = "input-firstname")
     private WebElement firstNameInput;
@@ -24,24 +24,19 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "input-confirm")
     private WebElement passwordConfirmInput;
 
-    @FindBy(name = "agree")
-    private WebElement policy;
+    @FindBy(xpath = "//*[@type = 'checkbox']")
+    private WebElement privacyPolicyCheckBox;
 
-    @FindBy(xpath = ".//*[@type='submit']")
+    @FindBy(xpath = ".//*[@type = 'submit']")
     private WebElement continueButton;
 
-    public WebElement getSubscribeRadioButton(int value) {
-        return driver.findElement(By.xpath("//*[@type = 'radio' and @value = '" + value + "']"));
+    public WebElement getSubscribeRadioButton(int value){
+        return driver.findElement(By.xpath(".//*[@class = 'radio-inline'] " +
+                "/* [@type = 'radio' and @value = '"+ value +"']"));
     }
 
 
-    public WebElement getEmailInput() {
-        return emailInput;
-    }
 
-    public WebElement getContinueButton() {
-        return continueButton;
-    }
 
     public WebElement getFirstNameInput() {
         return firstNameInput;
@@ -51,19 +46,28 @@ public class RegisterPage extends BasePage {
         return lastNameInput;
     }
 
-    public WebElement getPasswordConfirmInput() {
-        return passwordConfirmInput;
+    public WebElement getEmailInput() {
+        return emailInput;
+    }
+
+    public WebElement getTelephoneInput() {
+        return telephoneInput;
     }
 
     public WebElement getPasswordInput() {
         return passwordInput;
     }
 
-    public WebElement getPolicy() {
-        return policy;
+    public WebElement getPasswordConfirmInput() {
+        return passwordConfirmInput;
     }
 
-    public WebElement getTelephoneInput() {
-        return telephoneInput;
+    public WebElement getPrivacyPolicyCheckBox() {
+        return privacyPolicyCheckBox;
     }
+
+    public WebElement getContinueButton() {
+        return continueButton;
+    }
+
 }
