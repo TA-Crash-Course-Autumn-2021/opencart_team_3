@@ -1,35 +1,31 @@
 package steps;
 
-
-import datamodel.RegisterModel;
+import models.RegisterUserModel;
 import org.testng.Assert;
 import pages.RegisterPage;
-import pages.SuccessRegisterPage;
-import repository.RegisterModelRepository;
-import util.DriverUtils;
-
+import pages.SuccessfulRegisterPage;
 
 public class RegisterPageBL {
 
     private RegisterPage registerPage;
-    private SuccessRegisterPage successRegisterPage;
+    private SuccessfulRegisterPage successfulRegisterPage;
 
-    public RegisterPageBL() {
+    public RegisterPageBL(){
         registerPage = new RegisterPage();
     }
 
-    public RegisterPageBL registerNewPerson() {
-        RegisterModel registerModel = RegisterModelRepository.getRegisterModel();
-        inputFirstName(registerModel.getFirstName());
-        inputLastName(registerModel.getLastName());
-        inputEmail(registerModel.getEmail());
-        inputTelephone(registerModel.getTelephone());
-        inputPassword(registerModel.getPassword());
+    public RegisterPageBL registerNewUser(RegisterUserModel registerUserModel){
+
+        inputFirstName(registerUserModel.getFirstName());
+        inputLastName(registerUserModel.getLastName());
+        inputEmail(registerUserModel.getEmail());
+        inputTelephone(registerUserModel.getTelephone());
+        inputPassword(registerUserModel.getPassword());
+        inputPasswordConfirm(registerUserModel.getPasswordConfirm());
         chooseSubscribe(1);
         clickPolicyCheckbox();
         clickOnContinueButton();
-
-        successRegisterPage = new SuccessRegisterPage();
+        successfulRegisterPage = new SuccessfulRegisterPage();
         return this;
     }
 
@@ -56,24 +52,29 @@ public class RegisterPageBL {
     private void inputPassword(String password) {
         registerPage.getPasswordInput().clear();
         registerPage.getPasswordInput().sendKeys(password);
+    }
+
+    private void inputPasswordConfirm(String password){
         registerPage.getPasswordConfirmInput().clear();
         registerPage.getPasswordConfirmInput().sendKeys(password);
     }
 
     private void chooseSubscribe(int value) {
-        new DriverUtils().clickOnElementJS(registerPage.getSubscribeRadioButton(value));
+        registerPage.getSubscribeRadioButton(value).click();
     }
 
     private void clickPolicyCheckbox() {
-        new DriverUtils().clickOnElementJS(registerPage.getPolicy());
+        registerPage.getPrivacyPolicyCheckBox().click();
     }
 
     private void clickOnContinueButton() {
         registerPage.getContinueButton().click();
     }
 
-    public void verifyUserRegistration() {
+    public void verifySuccessfulUserRegistration(){
         String expectedMessage = "Your Account Has Been Created!";
-        Assert.assertEquals(successRegisterPage.getSuccessTitle().getText(), expectedMessage, "Incorrect page title");
+        Assert.assertEquals(successfulRegisterPage.getSuccessfulRegistrationMessage().getText(), expectedMessage,
+                "Error - user has not been registered!");
     }
+
 }
