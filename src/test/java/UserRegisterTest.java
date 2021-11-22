@@ -2,7 +2,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import navigation.Navigation;
 import org.testng.annotations.Test;
-import steps.MainPageBL;
+import steps.HomePageBL;
 import steps.RegisterPageBL;
 
 import static enums.URLs.BASE_URL;
@@ -10,21 +10,49 @@ import static enums.URLs.BASE_URL;
 public class UserRegisterTest extends BaseTest {
 
     @Severity(SeverityLevel.NORMAL)
-    @Test(description = "Verify user registration", groups = "regression")
-    public void registerUserWithValidParametersTest() throws InterruptedException {
+    @Test
+    public void registerUserWithValidParametersTest() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
-        MainPageBL mainPageBL = new MainPageBL();
-        //Thread.sleep(6000);
-        //mainPageBL.getProductExTax("MacBook");
-        // mainPageBL.getProductPrice("MacBook");
-        //mainPageBL.clickOnProductTitle("Macbook");
-        // mainPageBL.addProductToCart("MacBook");
-        //Thread.sleep(6000);
-        // System.out.println();
-        RegisterPageBL registerPageBL = mainPageBL.getHeaderPageUnloginedBL()
+        HomePageBL homePageBL = new HomePageBL();
+        RegisterPageBL registerPageBL = homePageBL.getHeaderPageUnloginedBL()
                 .clickOnMyAccountButton()
                 .clickOnRegisterButton()
-                .registerNewPerson();
+                .registerNewValidPerson();
         registerPageBL.verifyUserRegistration();
     }
+
+    @Test
+    public void registerUserWithInvalidParametersTest() {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+        HomePageBL homePageBL = new HomePageBL();
+        RegisterPageBL registerPageBL = homePageBL.getHeaderPageUnloginedBL()
+                .clickOnMyAccountButton()
+                .clickOnRegisterButton()
+                .registerNewInvalidPerson();
+        registerPageBL.verifyPasswordsNotMatch();
+    }
+
+
+    @Test
+    public void positiveLoginTest() {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+        HomePageBL homePageBL = new HomePageBL();
+        homePageBL.getHeaderPageUnloginedBL()
+                .clickOnMyAccountButton()
+                .clickOnLoginButton()
+                .loginValidUser()
+                .successfulLoginCheck();
+    }
+
+    @Test
+    public void negativeLoginTest() {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+        HomePageBL homePageBL = new HomePageBL();
+        homePageBL.getHeaderPageUnloginedBL()
+                .clickOnMyAccountButton()
+                .clickOnLoginButton()
+                .loginInvalidUser()
+                .unsuccessfulLoginCheck();
+    }
+
 }

@@ -2,8 +2,8 @@ package steps;
 
 import datamodel.EditAccountModel;
 import org.testng.Assert;
-import pages.EditAccountInformationPage;
-import pages.SuccessEditAccountPage;
+import pages.edit_account_pages.EditAccountInformationPage;
+import pages.edit_account_pages.SuccessEditAccountPage;
 import repository.EditAccountModelRepository;
 
 public class EditAccountInformationPageBL {
@@ -15,7 +15,7 @@ public class EditAccountInformationPageBL {
         editAccountInformationPage = new EditAccountInformationPage();
     }
 
-    public EditAccountInformationPageBL editAccount() {
+    public EditAccountInformationPageBL editAllAccount() {
         EditAccountModel editAccountModel = EditAccountModelRepository.getEditAccountModel();
         inputFirstName(editAccountModel.getFirstName());
         inputLastName(editAccountModel.getLastName());
@@ -26,6 +26,43 @@ public class EditAccountInformationPageBL {
         successEditAccountPage = new SuccessEditAccountPage();
         return this;
     }
+
+    public EditAccountInformationPageBL changeUserFirstName() {
+        EditAccountModel editAccountModel = EditAccountModelRepository.changeFirstNameModel();
+        inputFirstName(editAccountModel.getFirstName());
+        clickOnContinueButton();
+
+        successEditAccountPage = new SuccessEditAccountPage();
+        return this;
+    }
+
+    public EditAccountInformationPageBL changeUserLastName() {
+        EditAccountModel editAccountModel = EditAccountModelRepository.changeLastNameModel();
+        inputLastName(editAccountModel.getLastName());
+        clickOnContinueButton();
+
+        successEditAccountPage = new SuccessEditAccountPage();
+        return this;
+    }
+
+    public EditAccountInformationPageBL changeUserEmail() {
+        EditAccountModel editAccountModel = EditAccountModelRepository.changeEmailModel();
+        inputEmail(editAccountModel.getEmail());
+        clickOnContinueButton();
+
+        successEditAccountPage = new SuccessEditAccountPage();
+        return this;
+    }
+
+    public EditAccountInformationPageBL changeUserTelephone() {
+        EditAccountModel editAccountModel = EditAccountModelRepository.changeTelephoneModel();
+        inputTelephone(editAccountModel.getTelephone());
+        clickOnContinueButton();
+
+        successEditAccountPage = new SuccessEditAccountPage();
+        return this;
+    }
+
 
     private void inputFirstName(String firstName) {
         editAccountInformationPage.getFirstNameInput().clear();
@@ -58,7 +95,7 @@ public class EditAccountInformationPageBL {
 
     public void verifyEditAccount() {
         String expectedMessage = "Success: Your account has been successfully updated.";
-        Assert.assertEquals(successEditAccountPage.getSuccessTitle().getText(), expectedMessage, "Incorrect page title");
+        Assert.assertEquals(successEditAccountPage.getSuccessTitle().getText(), expectedMessage, "Incorrect alert");
     }
 
 }
