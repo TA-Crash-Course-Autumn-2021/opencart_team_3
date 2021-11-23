@@ -2,8 +2,8 @@ package steps;
 
 import datamodel.ChangePasswordModel;
 import org.testng.Assert;
-import pages.ChangePasswordPage;
-import pages.SuccessChangePasswordPage;
+import pages.change_password_pages.ChangePasswordPage;
+import pages.change_password_pages.SuccessChangePasswordPage;
 import repository.ChangePasswordModelRepository;
 
 public class ChangePasswordPageBL {
@@ -15,20 +15,38 @@ public class ChangePasswordPageBL {
         changePasswordPage = new ChangePasswordPage();
     }
 
-    public ChangePasswordPageBL changePassword() {
-        ChangePasswordModel changePasswordModel = ChangePasswordModelRepository.getChangePasswordModel();
-        inputPassword(changePasswordModel.getPassword());
+    public ChangePasswordPageBL successfulChangePassword() {
+        ChangePasswordModel changePasswordModel = ChangePasswordModelRepository.getValidChangePasswordModel();
+        inputCorrectPassword(changePasswordModel.getPassword());
         clickOnContinueButton();
 
         successChangePasswordPage = new SuccessChangePasswordPage();
         return this;
     }
 
-    private void inputPassword(String password) {
+    public ChangePasswordPageBL unsuccessfulChangePassword(){
+        ChangePasswordModel changePasswordModel = ChangePasswordModelRepository.getInValidChangePasswordModel();
+        inputIncorrectPassword(changePasswordModel.getPassword());
+        inputIncorrectPasswordConfirm(changePasswordModel.getPasswordConfirm());
+        clickOnContinueButton();
+        return this;
+    }
+
+    private void inputCorrectPassword(String password) {
         changePasswordPage.getPasswordInput().clear();
         changePasswordPage.getPasswordInput().sendKeys(password);
         changePasswordPage.getPasswordConfirmInput().clear();
         changePasswordPage.getPasswordConfirmInput().sendKeys(password);
+    }
+
+    private void inputIncorrectPassword(String password) {
+        changePasswordPage.getPasswordInput().clear();
+        changePasswordPage.getPasswordInput().sendKeys(password);
+    }
+
+    private void inputIncorrectPasswordConfirm(String passwordConfirm) {
+        changePasswordPage.getPasswordConfirmInput().clear();
+        changePasswordPage.getPasswordConfirmInput().sendKeys(passwordConfirm);
     }
 
     private void clickOnContinueButton() {
@@ -41,7 +59,12 @@ public class ChangePasswordPageBL {
 
     public void verifyChangePassword() {
         String expectedMessage = "Success: Your password has been successfully updated.";
-        Assert.assertEquals(successChangePasswordPage.getSuccessTitle().getText(), expectedMessage, "Incorrect page title");
+        Assert.assertEquals(successChangePasswordPage.getSuccessTitle().getText(), expectedMessage, "Incorrect page alert");
+    }
+
+    public void verifyChangePasswordsNotMatch() {
+        String expectedMessage = "Password confirmation does not match password!";
+        Assert.assertTrue(changePasswordPage.getUnsuccessfulChangePasswordMatch().contains(expectedMessage),"Password and Password confirm are the same");
     }
 
 }

@@ -1,8 +1,8 @@
 package steps;
 
-import pages.ComparePage;
-import pages.EmptyComparePage;
-import pages.SuccessfulAddingToComparePageAlertPage;
+import pages.compare_pages.ComparePage;
+import pages.compare_pages.EmptyComparePage;
+import pages.compare_pages.SuccessfulAddingToComparePageAlertPage;
 
 public class ComparePageBL {
 

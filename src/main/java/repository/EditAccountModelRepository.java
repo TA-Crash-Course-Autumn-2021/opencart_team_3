@@ -13,4 +13,28 @@ public class EditAccountModelRepository {
                 .telephone(RandomStringUtils.randomNumeric(10))
                 .build();
     }
+
+    public static EditAccountModel changeFirstNameModel() {
+        return EditAccountModel.getBuilder()
+                .firstName(RandomStringUtils.randomAlphabetic(7))
+                .build();
+    }
+
+    public static EditAccountModel changeLastNameModel() {
+        return EditAccountModel.getBuilder()
+                .lastName(RandomStringUtils.randomAlphabetic(8))
+                .build();
+    }
+
+    public static EditAccountModel changeEmailModel() {
+        return EditAccountModel.getBuilder()
+                .email(RandomStringUtils.randomAlphabetic(7) + "@gmail.com")
+                .build();
+    }
+
+    public static EditAccountModel changeTelephoneModel() {
+        return EditAccountModel.getBuilder()
+                .telephone(RandomStringUtils.randomNumeric(15))
+                .build();
+    }
 }
