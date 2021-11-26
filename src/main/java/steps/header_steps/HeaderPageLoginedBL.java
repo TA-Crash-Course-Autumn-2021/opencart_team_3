@@ -1,8 +1,6 @@
 package steps.header_steps;
 
 import pages.header_pages.HeaderPageLogined;
-import steps.RegisterPageBL;
-import steps.log_steps.LoginPageBL;
 
 public class HeaderPageLoginedBL {
 
