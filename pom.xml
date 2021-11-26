@@ -65,6 +65,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-maven</artifactId>
+            <version>2.10</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -109,15 +115,15 @@
     <reporting>
         <excludeDefaults>true</excludeDefaults>
         <plugins>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
-                <configuration>
-                    <servePort>8080</servePort>
-                    <reportVersion>${allure.version}</reportVersion>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>io.qameta.allure</groupId>-->
+<!--                <artifactId>allure-maven</artifactId>-->
+<!--                <version>2.10.0</version>-->
+<!--                <configuration>-->
+<!--                    <servePort>8080</servePort>-->
+<!--                    <reportVersion>${allure.version}</reportVersion>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </reporting>
 </project>
