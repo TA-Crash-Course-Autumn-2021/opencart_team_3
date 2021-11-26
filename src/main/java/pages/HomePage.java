@@ -22,13 +22,6 @@ public class HomePage extends BasePage {
         return productContainers;
         //return products.stream().map(ProductContainer::new).collect(Collectors.toList());
     }
-
-    @Override
-    public String toString() {
-        return "HomePage{" +
-                "products=" + products +
-                '}';
-    }
 }
 
 
