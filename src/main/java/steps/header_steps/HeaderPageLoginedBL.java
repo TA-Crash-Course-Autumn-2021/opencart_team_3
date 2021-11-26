@@ -1,6 +1,8 @@
 package steps.header_steps;
 
 import pages.header_pages.HeaderPageLogined;
+import steps.RegisterPageBL;
+import steps.log_steps.LoginPageBL;
 
 public class HeaderPageLoginedBL {
 
@@ -36,6 +38,25 @@ public class HeaderPageLoginedBL {
     public HeaderPageLoginedBL clickOnLogoutButton() {
         headerPageLogined.getLogoutButton().click();
         return this;
+    }
+
+    public HeaderPageLoginedBL clickOnCurrencyButton() {
+        headerPageLogined.getCurrencyButton().click();
+        return this;
+    }
+
+    public HeaderPageLoginedBL clickOnEuroButton() {
+        headerPageLogined.getEuroButton().click();
+        return new HeaderPageLoginedBL();
+    }
+
+    public HeaderPageLoginedBL clickOnPoundsButton(){
+        headerPageLogined.getPoundsButton().click();
+        return new HeaderPageLoginedBL();
+    }
+    public HeaderPageLoginedBL clickOnDollarButton(){
+        headerPageLogined.getDollarButton().click();
+        return new HeaderPageLoginedBL();
     }
 
 }

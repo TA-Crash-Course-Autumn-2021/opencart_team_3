@@ -26,6 +26,24 @@ public class HeaderPageUnloginedBL {
         headerPageUnlogined.getLoginButton().click();
         return new LoginPageBL();
     }
+    public HeaderPageUnloginedBL clickOnCurrencyButton() {
+        headerPageUnlogined.getCurrencyButton().click();
+        return this;
+    }
+
+    public HeaderPageUnloginedBL clickOnEuroButton() {
+        headerPageUnlogined.getEuroButton().click();
+        return new HeaderPageUnloginedBL();
+    }
+
+    public HeaderPageUnloginedBL clickOnPoundsButton(){
+        headerPageUnlogined.getPoundsButton().click();
+        return new HeaderPageUnloginedBL();
+    }
+    public HeaderPageUnloginedBL clickOnDollarButton(){
+        headerPageUnlogined.getDollarButton().click();
+        return new HeaderPageUnloginedBL();
+    }
 
 }
 

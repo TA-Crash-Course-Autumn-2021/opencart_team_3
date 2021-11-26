@@ -2,6 +2,8 @@ package steps;
 
 import pages.MainPage;
 import pages.containers.ProductContainer;
+import steps.header_steps.HeaderPageLoginedBL;
+import steps.header_steps.HeaderPageUnloginedBL;
 
 import java.util.stream.Collectors;
 
