@@ -36,9 +36,9 @@ public class CartPage extends BasePage {
     private List<WebElement> countrySelectionButtons;
     @FindBy(xpath = "//select[@name = 'zone_id']")
     private WebElement zoneIdInput;
-    @FindBy(xpath = "//select[@name = 'zone_id']//option")
+    @FindBy(xpath = ".//select[@id = 'input-zone']/option")
     private List<WebElement> zoneIdSelectionButtons;
-    @FindBy(xpath = "//select[@name = 'postcode']")
+    @FindBy(xpath = "//input[@name = 'postcode']")
     private WebElement postcodeInput;
     @FindBy(xpath = "//button[@id = 'button-quote']")
     private WebElement GetQuotesButton;

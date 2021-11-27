@@ -10,17 +10,18 @@ public class CartPageBL {
     private AlertCartPage AlertCartPage;
     private CartPage CartPage;
 
+
     public CartPageBL() {
         CartPage = new CartPage();
     }
 
-    public CartPageBL cartProducts(int poductNumber, int country, int zone) {
+    public CartPageBL cartProducts(int poductNumber, int country, int zone) throws InterruptedException {
         CartModel cartModel = CartModelRepository.getCartModel();
-        inputQuantity(cartModel.getGiftCertificate(), poductNumber);
+        inputQuantity("4", poductNumber);
         clickOnUpdateButtons(poductNumber);
         clickOnUseCouponCodeButton();
         inputCoupon(cartModel.getCoupon());
-        clickOnUseCouponCodeButton();
+        clickOnApplyCouponCodeButton() ;
         clickOnEstimateShippingAndTaxesButton();
         clickOnCountryInput();
         clickOnCountrySelectionButtons(country);
@@ -36,6 +37,7 @@ public class CartPageBL {
 
 
     private void inputPostCode(String postCode) {
+        CartPage.getPostcodeInput().click();
         CartPage.getPostcodeInput().clear();
         CartPage.getPostcodeInput().sendKeys(postCode);
     }
@@ -45,7 +47,7 @@ public class CartPageBL {
         CartPage.getUseGiftCertificateInput().sendKeys(giftCertificate);
     }
 
-    private void inputQuantity(String quantityInput, int value) {
+    public void inputQuantity(String quantityInput, int value) {
         CartPage.getQuantityInput().clear();
         CartPage.getQuantityInput().get(value).sendKeys(quantityInput);
     }
