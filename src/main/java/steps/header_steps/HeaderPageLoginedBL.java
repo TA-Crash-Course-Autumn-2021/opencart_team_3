@@ -37,23 +37,13 @@ public class HeaderPageLoginedBL {
         headerPageLogined.getLogoutButton().click();
         return this;
     }
-
-    public HeaderPageLoginedBL clickOnCurrencyButton() {
-        headerPageLogined.getCurrencyButton().click();
+    public HeaderPageLoginedBL clickOnCheckoutButton(){
+        headerPageLogined.getCheckoutButton().click();
         return this;
     }
 
-    public HeaderPageLoginedBL clickOnEuroButton() {
-        headerPageLogined.getEuroButton().click();
-        return this;
-    }
-
-    public HeaderPageLoginedBL clickOnPoundsButton(){
-        headerPageLogined.getPoundsButton().click();
-        return this;
-    }
-    public HeaderPageLoginedBL clickOnDollarButton(){
-        headerPageLogined.getDollarButton().click();
+    public HeaderPageLoginedBL clickOnMainPageButton(){
+        headerPageLogined.getMainPageButton().click();
         return this;
     }
 
