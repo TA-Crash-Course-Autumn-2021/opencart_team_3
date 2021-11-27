@@ -7,6 +7,18 @@ import pages.BasePage;
 
 public class HeaderPageUnlogined extends BasePage {
 
+    @FindBy(xpath =".//*[@id='form-currency']")
+    private WebElement currencyButton;
+
+    @FindBy(xpath ="//*[@name = 'EUR']")
+    private WebElement euroButton;
+
+    @FindBy(xpath ="//*[@name = 'GBP']")
+    private WebElement poundsButton;
+
+    @FindBy(xpath ="//*[@name = 'USD']")
+    private WebElement dollarButton;
+
     @FindBy(xpath = ".//*[@title='My Account']")
     private WebElement myAccountButton;
 
@@ -22,13 +34,24 @@ public class HeaderPageUnlogined extends BasePage {
     @FindBy(xpath = "//nav//i[@class='fa fa-shopping-cart']")
     private WebElement cartButton;
 
-    public HeaderPageUnlogined() {
-    }
+    @FindBy(xpath = ".//*[@title='Wish List (0)']")
+    private WebElement wishListButton;
 
     public WebElement getMyAccountButton() {
         wait.until(ExpectedConditions.visibilityOf(myAccountButton));
         return myAccountButton;
     }
+
+    public WebElement getCurrencyButton() {
+        wait.until(ExpectedConditions.visibilityOf(currencyButton));
+        return currencyButton;
+    }
+
+    public WebElement getEuroButton() { return euroButton; }
+
+    public WebElement getPoundsButton() { return poundsButton; }
+
+    public WebElement getDollarButton() { return dollarButton; }
 
     public WebElement getRegisterButton() {
         return registerButton;
@@ -45,5 +68,7 @@ public class HeaderPageUnlogined extends BasePage {
     public WebElement getCartButton() {
         return cartButton;
     }
+
+    public WebElement getWishListButton() { return wishListButton; }
 
 }

@@ -4,7 +4,7 @@ package enums;
 //http://localhost/opencart/upload/index.php
 
 public enum URLs {
-    BASE_URL("http://localhost/opencart/upload/index.php");
+    BASE_URL("https://demo.opencart.com/index.php?route=common/home");
 
     private final String value;
 
