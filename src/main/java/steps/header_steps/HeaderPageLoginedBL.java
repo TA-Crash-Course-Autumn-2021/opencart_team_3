@@ -47,4 +47,22 @@ public class HeaderPageLoginedBL {
         return this;
     }
 
+    public HeaderPageLoginedBL clickOnCurrencyButton() {
+        headerPageLogined.getCurrencyButton().click();
+        return this;
+    }
+
+    public HeaderPageLoginedBL clickOnEuroButton() {
+        headerPageLogined.getEuroButton().click();
+        return this;
+    }
+
+    public HeaderPageLoginedBL clickOnPoundsButton(){
+        headerPageLogined.getPoundsButton().click();
+        return this;
+    }
+    public HeaderPageLoginedBL clickOnDollarButton(){
+        headerPageLogined.getDollarButton().click();
+        return this;
+    }
 }
