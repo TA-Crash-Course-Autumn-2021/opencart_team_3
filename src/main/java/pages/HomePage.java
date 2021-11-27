@@ -13,6 +13,8 @@ public class HomePage extends BasePage {
     @FindBy(xpath = ".//*[contains(@class,'product-layout')]")
     private List<WebElement> products;
 
+
+
     public List<ProductContainer> getProducts() {
 
         List<ProductContainer> productContainers = new ArrayList<>();
