@@ -32,6 +32,24 @@ public class HeaderPageUnloginedBL {
         headerPageUnlogined.getCartButton().click();
         return new CartPageBL();
     }
+    public HeaderPageUnloginedBL clickOnCurrencyButton() {
+        headerPageUnlogined.getCurrencyButton().click();
+        return this;
+    }
+
+    public HeaderPageUnloginedBL clickOnEuroButton() {
+        headerPageUnlogined.getEuroButton().click();
+        return this;
+    }
+
+    public HeaderPageUnloginedBL clickOnPoundsButton(){
+        headerPageUnlogined.getPoundsButton().click();
+        return this;
+    }
+    public HeaderPageUnloginedBL clickOnDollarButton(){
+        headerPageUnlogined.getDollarButton().click();
+        return this;
+    }
 
 }
 
