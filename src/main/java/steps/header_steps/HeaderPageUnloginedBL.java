@@ -51,5 +51,10 @@ public class HeaderPageUnloginedBL {
         return this;
     }
 
+    public HeaderPageUnloginedBL clickOnWishListButton() {
+        headerPageUnlogined.getWishListButton().click();
+        return this;
+    }
+
 }
 

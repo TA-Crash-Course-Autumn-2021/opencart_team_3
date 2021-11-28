@@ -34,6 +34,9 @@ public class HeaderPageUnlogined extends BasePage {
     @FindBy(xpath = "//nav//i[@class='fa fa-shopping-cart']")
     private WebElement cartButton;
 
+    @FindBy(xpath = ".//*[@title='Wish List (0)']")
+    private WebElement wishListButton;
+
     public HeaderPageUnlogined() {
     }
 
@@ -67,5 +70,7 @@ public class HeaderPageUnlogined extends BasePage {
     public WebElement getPoundsButton() { return poundsButton; }
 
     public WebElement getDollarButton() { return dollarButton; }
+
+    public WebElement getWishListButton() { return wishListButton; }
 
 }
