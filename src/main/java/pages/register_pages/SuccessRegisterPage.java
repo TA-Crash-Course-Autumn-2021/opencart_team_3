@@ -9,7 +9,14 @@ public class SuccessRegisterPage extends BasePage {
     @FindBy(xpath = ".//*[@id='content']/h1")
     private WebElement successTitle;
 
+    @FindBy(xpath = "//div[@class='pull-right'][1]")
+    private WebElement continueButtonSuccessfulRegisterPage;
+
     public WebElement getSuccessTitle() {
         return successTitle;
+    }
+
+    public WebElement getContinueButtonSuccessRegisterPage() {
+        return continueButtonSuccessfulRegisterPage;
     }
 }
