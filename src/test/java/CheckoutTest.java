@@ -34,7 +34,6 @@ public class CheckoutTest extends BaseTest {
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().successCheckout();
     }
 
-
     @Test
     public void CheckoutNotFirstTimeTest() throws InterruptedException {
         new Navigation().navigateToUrl(BASE_URL.getValue());

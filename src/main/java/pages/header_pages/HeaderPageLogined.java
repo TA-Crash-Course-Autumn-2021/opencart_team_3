@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
 public class HeaderPageLogined extends BasePage {
+
     @FindBy(xpath =".//*[@id='form-currency']")
     private WebElement currencyButton;
 
@@ -44,7 +45,6 @@ public class HeaderPageLogined extends BasePage {
 
     @FindBy(xpath = "//img[@title='Your Store']")
     private WebElement MainPageButton;
-
 
     public WebElement getMyAccountButton() {
         wait.until(ExpectedConditions.visibilityOf(myAccountButton));

@@ -67,5 +67,4 @@ public class HeaderPageUnlogined extends BasePage {
     public WebElement getPoundsButton() { return poundsButton; }
 
     public WebElement getDollarButton() { return dollarButton; }
-
 }

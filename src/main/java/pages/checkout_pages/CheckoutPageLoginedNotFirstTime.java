@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
+import java.util.List;
+
 public class CheckoutPageLoginedNotFirstTime extends BasePage {
 
     @FindBy(xpath = "//input[@value='existing'][@name='payment_address']")
@@ -36,7 +38,6 @@ public class CheckoutPageLoginedNotFirstTime extends BasePage {
     @FindBy(xpath = "//input[@id='button-confirm']")
     private WebElement confirmOrderButton;
 
-
     public WebElement getExistingBillingDetailsRadioButton() {
         return existingBillingDetailsRadioButton;
     }
@@ -49,7 +50,6 @@ public class CheckoutPageLoginedNotFirstTime extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(AddressRadioButton));
         return AddressRadioButton;
     }
-
     public WebElement getDeliveryDetailsContinueButton() {
         wait.until(ExpectedConditions.visibilityOf(deliveryDetailsContinueButton));
         return deliveryDetailsContinueButton;

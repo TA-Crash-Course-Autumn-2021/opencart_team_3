@@ -32,6 +32,7 @@ public class HeaderPageUnloginedBL {
         headerPageUnlogined.getCartButton().click();
         return new CartPageBL();
     }
+
     public HeaderPageUnloginedBL clickOnCurrencyButton() {
         headerPageUnlogined.getCurrencyButton().click();
         return this;
@@ -50,7 +51,6 @@ public class HeaderPageUnloginedBL {
         headerPageUnlogined.getDollarButton().click();
         return this;
     }
-
 
 }
 
