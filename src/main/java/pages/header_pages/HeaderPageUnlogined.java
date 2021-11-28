@@ -28,6 +28,9 @@ public class HeaderPageUnlogined extends BasePage {
     @FindBy(xpath = ".//*[contains(@href,'account/login')]")
     private WebElement loginButton;
 
+    @FindBy(id = "wishlist-total")
+    private WebElement wishListButton;
+
     @FindBy(xpath = "//nav//i[@class='fa fa-share']")
     private WebElement checkoutButton;
 
@@ -48,6 +51,10 @@ public class HeaderPageUnlogined extends BasePage {
 
     public WebElement getLoginButton() {
         return loginButton;
+    }
+
+    public WebElement getWishListButton() {
+        return wishListButton;
     }
 
     public WebElement getCheckoutButton() {

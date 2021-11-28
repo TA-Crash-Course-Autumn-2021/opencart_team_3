@@ -22,10 +22,6 @@ public class ComparePageBL {
         return this;
     }
 
-    private void clickOnAddToCartButton(int productIndex) {
-        comparePage.getAddToCartButtons().get(productIndex).click();
-    }
-
     private void clickOnAddToCartButton(String productName) {
 
         for (int i = 0; i < comparePage.getProducts().size(); i++) {
@@ -34,11 +30,6 @@ public class ComparePageBL {
                 break;
             }
         }
-    }
-
-    private void clickOnRemoveButton(int productIndex) {
-        comparePage.getRemoveButtons().get(productIndex).click();
-        isComparePageEmpty();
     }
 
     private void clickOnRemoveButton(String productName) {

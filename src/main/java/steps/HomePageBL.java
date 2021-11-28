@@ -10,6 +10,8 @@ import steps.header_steps.HeaderPageUnloginedBL;
 import steps.checkout_steps.CheckoutPageLoginedFirstTimeBL;
 import steps.product_page_steps.AppleCinemaPageBL;
 import steps.product_page_steps.ProductPageBL;
+import steps.search_steps.SearchFieldBL;
+
 
 import java.util.stream.Collectors;
 
@@ -116,8 +118,6 @@ public class HomePageBL {
                 .filter(e -> e.getTitle().equals(productName))
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
-
-
         product.getAddToCartButton().click();
         return this;
     }
@@ -146,7 +146,6 @@ public class HomePageBL {
         product.getCompareButton().click();
         return this;
     }
-
     public  boolean CurrencyIsChanged(String currencyCode)
     {
         boolean check = false;

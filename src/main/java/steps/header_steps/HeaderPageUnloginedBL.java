@@ -4,6 +4,7 @@ import pages.header_pages.HeaderPageUnlogined;
 import steps.RegisterPageBL;
 import steps.cart_steps.CartPageBL;
 import steps.log_steps.LoginPageBL;
+import steps.wish_list_steps.WishListPageUnloginedBL;
 
 public class HeaderPageUnloginedBL {
 
@@ -50,6 +51,11 @@ public class HeaderPageUnloginedBL {
     public HeaderPageUnloginedBL clickOnDollarButton(){
         headerPageUnlogined.getDollarButton().click();
         return this;
+    }
+
+    public WishListPageUnloginedBL clickOnWishListButton() {
+        headerPageUnlogined.getWishListButton().click();
+        return new WishListPageUnloginedBL();
     }
 
 }
