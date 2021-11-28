@@ -24,4 +24,11 @@ public class LoginModelRepository {
                 .password("123123")
                 .build();
     }
+
+    public static LoginModel getUserOne() {
+        return LoginModel.getBuilder().
+                email("afdhahdah@gmail.com")
+                .password("1234")
+                .build();
+    }
 }

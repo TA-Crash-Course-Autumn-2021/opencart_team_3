@@ -1,8 +1,6 @@
 package steps.header_steps;
 
 import pages.header_pages.HeaderPageLogined;
-import steps.checkout_steps.CheckoutPageLiginedNotFirstTimeBL;
-import steps.checkout_steps.CheckoutPageLoginedFirstTimeBL;
 
 public class HeaderPageLoginedBL {
 
@@ -39,7 +37,6 @@ public class HeaderPageLoginedBL {
         headerPageLogined.getLogoutButton().click();
         return this;
     }
-
     public HeaderPageLoginedBL clickOnCheckoutButton(){
         headerPageLogined.getCheckoutButton().click();
         return this;
@@ -68,8 +65,4 @@ public class HeaderPageLoginedBL {
         headerPageLogined.getDollarButton().click();
         return this;
     }
-
-    public CheckoutPageLoginedFirstTimeBL getCheckotPageLoginedFirstTimeBL(){return new CheckoutPageLoginedFirstTimeBL();}
-
-    public CheckoutPageLiginedNotFirstTimeBL getCheckotPageLoginedNotFirstTimeBL(){return new CheckoutPageLiginedNotFirstTimeBL();}
 }

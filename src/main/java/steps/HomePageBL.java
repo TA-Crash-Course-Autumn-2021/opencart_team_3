@@ -8,8 +8,7 @@ import steps.checkout_steps.CheckoutPageLiginedNotFirstTimeBL;
 import steps.header_steps.HeaderPageLoginedBL;
 import steps.header_steps.HeaderPageUnloginedBL;
 import steps.checkout_steps.CheckoutPageLoginedFirstTimeBL;
-import steps.product_page_steps.AppleCinemaPageBL;
-import steps.product_page_steps.ProductPageBL;
+
 
 import java.util.stream.Collectors;
 
@@ -38,13 +37,8 @@ public class HomePageBL {
     }
 
     public CartPageBL getCartPageBl(){return new CartPageBL();}
-
     public CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL(){return new CheckoutPageLoginedFirstTimeBL();}
     public CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL(){return new CheckoutPageLiginedNotFirstTimeBL();}
-
-    public AppleCinemaPageBL getAppleCinemaPageBL(){return new AppleCinemaPageBL();}
-
-    public ProductPageBL getProductPageBL() {return new ProductPageBL();}
 
 
     public HomePageBL clickOnProductImage(String productName) {
@@ -116,8 +110,6 @@ public class HomePageBL {
                 .filter(e -> e.getTitle().equals(productName))
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
-
-
         product.getAddToCartButton().click();
         return this;
     }
@@ -146,7 +138,6 @@ public class HomePageBL {
         product.getCompareButton().click();
         return this;
     }
-
     public  boolean CurrencyIsChanged(String currencyCode)
     {
         boolean check = false;

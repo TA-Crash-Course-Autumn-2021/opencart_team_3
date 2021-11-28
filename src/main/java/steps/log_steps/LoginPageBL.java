@@ -32,6 +32,14 @@ public class LoginPageBL {
         return this;
     }
 
+    public LoginPageBL loginUserOne() {
+        LoginModel loginModel = LoginModelRepository.getUserOne();
+        inputEmail(loginModel.getEmail());
+        inputPassword(loginModel.getPassword());
+        clickOnLoginButton();
+        return this;
+    }
+
 
     private void inputEmail(String email) {
         loginPage.getEmailInput().clear();

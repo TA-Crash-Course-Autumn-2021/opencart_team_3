@@ -2,7 +2,6 @@ package steps;
 
 import pages.ProductOnSearchPage;
 import pages.containers.ProductContainer;
-import steps.product_page_steps.ProductPageBL;
 
 import java.util.stream.Collectors;
 
@@ -116,6 +115,4 @@ public class ProductOnSearchPageBL {
         product.getCompareButton().click();
         return this;
     }
-
-    public ProductPageBL getProductPageBL() {return new ProductPageBL();}
 }

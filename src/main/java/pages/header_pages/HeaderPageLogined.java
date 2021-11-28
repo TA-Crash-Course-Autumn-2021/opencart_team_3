@@ -37,6 +37,9 @@ public class HeaderPageLogined extends BasePage {
     @FindBy(xpath = "//ul[contains(@class,'dropdown-menu dropdown')]//a[text() = 'Logout']")
     private WebElement logoutButton;
 
+    @FindBy(id = "wishlist-total")
+    private WebElement wishListButton;
+
     @FindBy(xpath = "//nav//i[@class='fa fa-share']")
     private WebElement checkoutButton;
 
@@ -69,6 +72,10 @@ public class HeaderPageLogined extends BasePage {
 
     public WebElement getLogoutButton() {
         return logoutButton;
+    }
+
+    public WebElement getWishListButton() {
+        return wishListButton;
     }
 
     public WebElement getCheckoutButton() {
