@@ -4,9 +4,10 @@ import org.testng.Assert;
 import pages.HomePage;
 import pages.containers.ProductContainer;
 import steps.cart_steps.CartPageBL;
+import steps.checkout_steps.CheckoutPageLiginedNotFirstTimeBL;
 import steps.header_steps.HeaderPageLoginedBL;
 import steps.header_steps.HeaderPageUnloginedBL;
-import steps.checkout_steps.CheckotPageLoginedNotFirstTimeBL;
+import steps.checkout_steps.CheckoutPageLoginedFirstTimeBL;
 
 
 import java.util.stream.Collectors;
@@ -36,7 +37,8 @@ public class HomePageBL {
     }
 
     public CartPageBL getCartPageBl(){return new CartPageBL();}
-    public CheckotPageLoginedNotFirstTimeBL getCheckotPageLoginedNotFirstTimeBL(){return new CheckotPageLoginedNotFirstTimeBL();}
+    public CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL(){return new CheckoutPageLoginedFirstTimeBL();}
+    public CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL(){return new CheckoutPageLiginedNotFirstTimeBL();}
 
 
     public HomePageBL clickOnProductImage(String productName) {
