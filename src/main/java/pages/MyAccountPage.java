@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class MyAccountPage extends BasePage {
 
+    @FindBy(xpath = "//img[@title='Your Store']")
+    private WebElement backToHomePageButton;
 
     @FindBy(xpath = ".//*[@class = 'list-group']//a[text() = 'My Account']")
     private WebElement myAccountButton;
@@ -36,6 +38,9 @@ public class MyAccountPage extends BasePage {
     @FindBy(xpath = ".//*[@class = 'list-unstyled']//a[contains(text(),'wish')]")
     private WebElement modifyWishListButton;
 
+    public WebElement getBackToHomePageButton() {
+        return backToHomePageButton;
+    }
 
     public WebElement getMyAccountButton() {
         return myAccountButton;

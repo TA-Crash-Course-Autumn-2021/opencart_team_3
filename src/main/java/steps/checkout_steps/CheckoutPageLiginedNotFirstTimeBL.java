@@ -9,28 +9,28 @@ import repository.CheckoutRepository;
 
 public class CheckoutPageLiginedNotFirstTimeBL {
 
-        private CheckoutPageLoginedNotFirstTime checkoutPageLoginedNotFirstTime;
+    private CheckoutPageLoginedNotFirstTime checkoutPageLoginedNotFirstTime;
 
-        public CheckoutPageLiginedNotFirstTimeBL(){
-            checkoutPageLoginedNotFirstTime = new CheckoutPageLoginedNotFirstTime();
-        }
-public CheckoutPageLiginedNotFirstTimeBL checkoutBillingDetails()throws InterruptedException{
-    CheckoutModel checkoutModel = CheckoutRepository.getCheckoutModel();
-    clickOnExistingBillingDetailsRadioButton();
-    clickOnBillingDetailsContinueButton();
-    clickOnAddressRadioButton();
-    clickOnDeliveryDetailsContinueButton();
-    clickOnDeliveryMethodRadioButton();
-    inputDeliveryMethodComment(checkoutModel.getDeliveryMethodComment());
-    clickOnDeliveryMethodContinueButton();
-    clickOnPaymentMethodRadioButton();
-    inputPaymentMethodComment(checkoutModel.getPaymentMethodComment());
-    clickOnAgreementCheckbox();
-    clickOnPaymentMethodContinueButton();
-    clickOnConfirmOrderButton();
-    return this;
+    public CheckoutPageLiginedNotFirstTimeBL(){
+        checkoutPageLoginedNotFirstTime = new CheckoutPageLoginedNotFirstTime();
+    }
+    public CheckoutPageLiginedNotFirstTimeBL checkoutBillingDetails()throws InterruptedException{
+        CheckoutModel checkoutModel = CheckoutRepository.getCheckoutModel();
+        clickOnExistingBillingDetailsRadioButton();
+        clickOnBillingDetailsContinueButton();
+        clickOnAddressRadioButton();
+        clickOnDeliveryDetailsContinueButton();
+        clickOnDeliveryMethodRadioButton();
+        inputDeliveryMethodComment(checkoutModel.getDeliveryMethodComment());
+        clickOnDeliveryMethodContinueButton();
+        clickOnPaymentMethodRadioButton();
+        inputPaymentMethodComment(checkoutModel.getPaymentMethodComment());
+        clickOnAgreementCheckbox();
+        clickOnPaymentMethodContinueButton();
+        clickOnConfirmOrderButton();
+        return this;
 
-}
+    }
 
 
 
@@ -48,9 +48,9 @@ public CheckoutPageLiginedNotFirstTimeBL checkoutBillingDetails()throws Interrup
         checkoutPageLoginedNotFirstTime.getPaymentMethodComment().clear();
         checkoutPageLoginedNotFirstTime.getPaymentMethodComment().sendKeys(PaymentMethodComment);
     }
-public void clickOnExistingBillingDetailsRadioButton(){
-       checkoutPageLoginedNotFirstTime.getExistingBillingDetailsRadioButton().click();
-}
+    public void clickOnExistingBillingDetailsRadioButton(){
+        checkoutPageLoginedNotFirstTime.getExistingBillingDetailsRadioButton().click();
+    }
     public void clickOnBillingDetailsContinueButton(){
         checkoutPageLoginedNotFirstTime.getBillingDetailsContinueButton().click();
     }

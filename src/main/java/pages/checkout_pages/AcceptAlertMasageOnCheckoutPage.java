@@ -8,6 +8,6 @@ public class AcceptAlertMasageOnCheckoutPage extends BasePage {
     }
 
     public void getAcceptMassageOk(){
-       acceptMassageOk();
+        acceptMassageOk();
     }
 }

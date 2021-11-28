@@ -28,5 +28,4 @@ public class CartTest extends BaseTest{
         Thread.sleep(2000);
         HomePageBL.getCartPageBl().cartProducts(1,4,3);
     }
-
 }

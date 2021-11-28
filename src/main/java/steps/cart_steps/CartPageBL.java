@@ -10,12 +10,11 @@ public class CartPageBL {
     private AlertCartPage AlertCartPage;
     private CartPage CartPage;
 
-
     public CartPageBL() {
         CartPage = new CartPage();
     }
 
-    public CartPageBL cartProducts(int poductNumber, int country, int zone) throws InterruptedException {
+    public CartPageBL cartProducts(int poductNumber, int country, int zone)  throws InterruptedException {
         CartModel cartModel = CartModelRepository.getCartModel();
         inputQuantity("4", poductNumber);
         clickOnUpdateButtons(poductNumber);

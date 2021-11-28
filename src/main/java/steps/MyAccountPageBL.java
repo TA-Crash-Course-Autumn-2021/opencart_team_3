@@ -50,6 +50,13 @@ public class MyAccountPageBL {
         return this;
     }
 
+    public MyAccountPageBL clickOnBackToHomePageButton() {
+        myAccountPage.getBackToHomePageButton().click();
+        return this;
+    }
+
+    public HomePageBL getHomePageBL(){return new HomePageBL();}
+
     public EditAccountInformationPageBL getEditAccountInformationPageBL() {
         return new EditAccountInformationPageBL();
     }
@@ -57,5 +64,7 @@ public class MyAccountPageBL {
     public ChangePasswordPageBL getChangePasswordPageBL() {
         return new ChangePasswordPageBL();
     }
+
+
 
 }

@@ -13,36 +13,36 @@ public class CheckoutPageLoginedFirstTimeBL {
         checkoutPageLoginedFirstTime = new CheckoutPageLoginedFirstTime();
     }
 
-public CheckoutPageLoginedFirstTimeBL checkoutBillingDetails(int country, int region) throws InterruptedException {
-    CheckoutModel checkoutModel = CheckoutRepository.getCheckoutModel();
-    //clickOnBillingDetailsButton();
-    inputFirstname(checkoutModel.getFirstName());
-    inputLastName(checkoutModel.getLastName());
-    inputCompany(checkoutModel.getCompany());
-    inputAddress1(checkoutModel.getAddress1());
-    inputAddress2(checkoutModel.getAddress2());
-    inputCity(checkoutModel.getCity());
-    inputPostcode(checkoutModel.getPostcode());
-    clickOnCountryInputButton();
-    clickOnCountryInputButtons(country);
-    clickOnRegionInputButton();
-    clickOnRegionInputButtons(region);
-    clickOnBillingDetailsContinueButton();
-    clickOnAddressRadioButton();
-    clickOnDeliveryDetailsContinueButton();
-    clickOnDeliveryMethodRadioButton();
-    inputDeliveryMethodComment(checkoutModel.getDeliveryMethodComment());
-    clickOnDeliveryMethodContinueButton();
-    clickOnPaymentMethodRadioButton();
-    inputPaymentMethodComment(checkoutModel.getPaymentMethodComment());
-    clickOnAgreementCheckbox();
-    clickOnPaymentMethodContinueButton();
-    clickOnConfirmOrderButton();
-    //acceptMassage();
-    //clickOnConfirmOrderButton();
-   //successOrderPage = new SuccessOrderPage();
-    return this;
-}
+    public CheckoutPageLoginedFirstTimeBL checkoutBillingDetails(int country, int region) throws InterruptedException {
+        CheckoutModel checkoutModel = CheckoutRepository.getCheckoutModel();
+        //clickOnBillingDetailsButton();
+        inputFirstname(checkoutModel.getFirstName());
+        inputLastName(checkoutModel.getLastName());
+        inputCompany(checkoutModel.getCompany());
+        inputAddress1(checkoutModel.getAddress1());
+        inputAddress2(checkoutModel.getAddress2());
+        inputCity(checkoutModel.getCity());
+        inputPostcode(checkoutModel.getPostcode());
+        clickOnCountryInputButton();
+        clickOnCountryInputButtons(country);
+        clickOnRegionInputButton();
+        clickOnRegionInputButtons(region);
+        clickOnBillingDetailsContinueButton();
+        clickOnAddressRadioButton();
+        clickOnDeliveryDetailsContinueButton();
+        clickOnDeliveryMethodRadioButton();
+        inputDeliveryMethodComment(checkoutModel.getDeliveryMethodComment());
+        clickOnDeliveryMethodContinueButton();
+        clickOnPaymentMethodRadioButton();
+        inputPaymentMethodComment(checkoutModel.getPaymentMethodComment());
+        clickOnAgreementCheckbox();
+        clickOnPaymentMethodContinueButton();
+        clickOnConfirmOrderButton();
+        //acceptMassage();
+        //clickOnConfirmOrderButton();
+        //successOrderPage = new SuccessOrderPage();
+        return this;
+    }
 
 
 
@@ -154,15 +154,15 @@ public CheckoutPageLoginedFirstTimeBL checkoutBillingDetails(int country, int re
     }
 
     public void successCheckout() {
-         SuccessOrderPage successOrderPage = new SuccessOrderPage();
+        SuccessOrderPage successOrderPage = new SuccessOrderPage();
         String expected = "Thanks for shopping with us online!";
-       Assert.assertEquals(successOrderPage.getSuccessTitle().getText(),expected,"Successful");
-}
+        Assert.assertEquals(successOrderPage.getSuccessTitle().getText(),expected,"Successful");
+    }
 
-public void AcceptMassageOk(){
+    public void AcceptMassageOk(){
         AcceptAlertMasageOnCheckoutPage AcceptAlertMasageOnCheckoutPage = new AcceptAlertMasageOnCheckoutPage();
-    AcceptAlertMasageOnCheckoutPage.getAcceptMassageOk();
-}
+        AcceptAlertMasageOnCheckoutPage.getAcceptMassageOk();
+    }
 
 
 
