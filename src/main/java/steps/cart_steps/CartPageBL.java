@@ -47,11 +47,11 @@ public class CartPageBL {
     }
 
     public void inputQuantity(String quantityInput, int value) {
-        CartPage.getQuantityInput().clear();
+        CartPage.getQuantityInput().get(value).clear();
         CartPage.getQuantityInput().get(value).sendKeys(quantityInput);
     }
 
-    private void inputCoupon(String Coupon) {
+    public void inputCoupon(String Coupon) {
         CartPage.getCouponCodeInput().clear();
         CartPage.getCouponCodeInput().sendKeys(Coupon);
     }

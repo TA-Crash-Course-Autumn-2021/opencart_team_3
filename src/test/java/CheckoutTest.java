@@ -25,7 +25,7 @@ public class CheckoutTest extends BaseTest {
         HomePageBL.getHeaderPageLoginedBL().clickOnCheckoutButton();
         Thread.sleep(2000);
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().checkoutBillingDetails(1, 1);
-        Thread.sleep(10000);
+        //Thread.sleep(10000);
         //mainPageBL.getCheckotPageLoginedNotFirstTimeBL().acceptMassage();
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().AcceptMassageOk();
         Thread.sleep(5000);

@@ -1,5 +1,6 @@
 package steps;
 
+import lombok.SneakyThrows;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.containers.ProductContainer;
@@ -42,6 +43,7 @@ public class HomePageBL {
     public CartPageBL getCartPageBl(){return new CartPageBL();}
 
     public CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL(){return new CheckoutPageLoginedFirstTimeBL();}
+
     public CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL(){return new CheckoutPageLiginedNotFirstTimeBL();}
 
     public AppleCinemaPageBL getAppleCinemaPageBL(){return new AppleCinemaPageBL();}

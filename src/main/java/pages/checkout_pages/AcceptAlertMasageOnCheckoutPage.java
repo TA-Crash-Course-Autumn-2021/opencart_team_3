@@ -1,5 +1,6 @@
 package pages.checkout_pages;
 
+import lombok.SneakyThrows;
 import pages.BasePage;
 
 public class AcceptAlertMasageOnCheckoutPage extends BasePage {
@@ -7,7 +8,9 @@ public class AcceptAlertMasageOnCheckoutPage extends BasePage {
         driver.switchTo().alert().accept();
     }
 
+    @SneakyThrows
     public void getAcceptMassageOk(){
+        Thread.sleep(5000);
         acceptMassageOk();
     }
 }
