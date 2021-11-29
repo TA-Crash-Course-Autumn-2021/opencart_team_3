@@ -20,15 +20,15 @@ public class LoginModelRepository {
 
     public static LoginModel getValidLoginModel() {
         return LoginModel.getBuilder()
-                .email("test@test.com")
-                .password("12345678")
+                .email("useradressmail@gmail.com")
+                .password("123123")
                 .build();
     }
 
     public static LoginModel getUserOne() {
         return LoginModel.getBuilder().
-                email("test@test.com")
-                .password("12345678")
+                email("afdhahdah@gmail.com")
+                .password("1234")
                 .build();
     }
 }
