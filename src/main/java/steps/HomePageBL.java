@@ -1,6 +1,5 @@
 package steps;
 
-import lombok.SneakyThrows;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.containers.ProductContainer;
