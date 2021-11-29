@@ -117,5 +117,16 @@ public class ProductOnSearchPageBL {
         return this;
     }
 
+    public String getProductTitle(String productName) {
+        ProductContainer product = productOnSearchPage.getProducts()
+                .stream()
+                .filter(e -> e.getTitle().contains(productName))
+                .findFirst()
+                .orElseThrow(NullPointerException::new);
+
+
+        return product.getTitle();
+    }
+
     public ProductPageBL getProductPageBL() {return new ProductPageBL();}
 }
