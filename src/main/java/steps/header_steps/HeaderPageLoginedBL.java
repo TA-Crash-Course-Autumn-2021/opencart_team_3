@@ -1,6 +1,7 @@
 package steps.header_steps;
 
 import pages.header_pages.HeaderPageLogined;
+import steps.cart_steps.CartPageBL;
 import steps.checkout_steps.CheckoutPageLiginedNotFirstTimeBL;
 import steps.checkout_steps.CheckoutPageLoginedFirstTimeBL;
 
@@ -18,6 +19,10 @@ public class HeaderPageLoginedBL {
     public HeaderPageLoginedBL clickOnMyAccountButtonDropdown() {
         headerPageLogined.getMyAccountButtonDropdown().click();
         return this;
+    }
+    public CartPageBL clickOnCartButton() {
+        headerPageLogined.getCartButton().click();
+        return new CartPageBL();
     }
 
     public HeaderPageLoginedBL clickOnOrderHistory() {
