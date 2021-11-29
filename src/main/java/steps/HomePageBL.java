@@ -2,6 +2,7 @@ package steps;
 
 import org.testng.Assert;
 import pages.HomePage;
+import pages.checkout_pages.SuccessOrderPage;
 import pages.containers.ProductContainer;
 import steps.cart_steps.CartPageBL;
 import steps.checkout_steps.CheckoutPageLiginedNotFirstTimeBL;
@@ -163,5 +164,10 @@ public class HomePageBL {
         boolean actual = CurrencyIsChanged(currencyCode);
         Assert.assertEquals(true, actual,"Currency is not changed!");
         return new HomePageBL();
+    }
+
+    public void successAddToCartAlert() {
+        String expectedMessage = "Success";
+        Assert.assertTrue(homePage.getSuccessAddToCartAlert().getText().contains(expectedMessage), "Your product was not added to product comparison");
     }
 }

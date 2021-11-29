@@ -12,14 +12,14 @@ public class CartTest extends BaseTest{
 
 
     @Test
-    public void OpenCartPageTest() throws InterruptedException {
+    public void CartTest() throws InterruptedException {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL HomePageBL = new HomePageBL();
         RegisterPageBL registerPageBL = HomePageBL.getHeaderPageUnloginedBL()
                 .clickOnMyAccountButton()
                 .clickOnRegisterButton()
                 .registerNewValidPerson();
-        registerPageBL.verifyUserRegistration();
+        HomePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         HomePageBL.addProductToCart("iPhone");
         Thread.sleep(2000);
         HomePageBL.addProductToCart("MacBook");
@@ -27,5 +27,32 @@ public class CartTest extends BaseTest{
         HomePageBL.getHeaderPageUnloginedBL().clickOnCartPageButton();
         Thread.sleep(2000);
         HomePageBL.getCartPageBl().cartProducts(1,4,3);
+    }
+    @Test
+    public void AddToCart1Test() throws InterruptedException {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+        HomePageBL HomePageBL = new HomePageBL();
+        HomePageBL.addProductToCart("iPhone");
+        HomePageBL.successAddToCartAlert();
+    }
+    @Test
+    public void AddToCart2Test() throws InterruptedException {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+        HomePageBL HomePageBL = new HomePageBL();
+        HomePageBL.addProductToCart("iPhone");
+        HomePageBL.successAddToCartAlert();
+        HomePageBL.addProductToCart("MacBook");
+       HomePageBL.successAddToCartAlert();
+    }
+    @Test
+    public void AddToCart3Test() throws InterruptedException {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+        HomePageBL HomePageBL = new HomePageBL();
+        HomePageBL.addProductToCart("iPhone");
+        HomePageBL.successAddToCartAlert();
+        HomePageBL.addProductToCart("MacBook");
+        HomePageBL.successAddToCartAlert();
+        HomePageBL.addProductToCart("MacBook");
+        HomePageBL.successAddToCartAlert();
     }
 }
