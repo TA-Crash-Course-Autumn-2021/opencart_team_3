@@ -10,7 +10,7 @@ import static enums.URLs.BASE_URL;
 
 public class CheckoutTest extends BaseTest {
     @Test
-    public void CheckoutFirstTimeTest() throws InterruptedException {
+     public void CheckoutFirstTimeTest() throws InterruptedException {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL HomePageBL = new HomePageBL();
         RegisterPageBL registerPageBL = HomePageBL.getHeaderPageUnloginedBL()
