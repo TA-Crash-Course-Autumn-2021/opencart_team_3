@@ -17,7 +17,7 @@ public class LoginPageBL {
     }
 
     public LoginPageBL loginValidUser() {
-       LoginModel loginModel = LoginModelRepository.getValidLoginModel();
+       LoginModel loginModel = LoginModelRepository.getValidTestUserModel();
         inputEmail(loginModel.getEmail());
         inputPassword(loginModel.getPassword());
         clickOnLoginButton();

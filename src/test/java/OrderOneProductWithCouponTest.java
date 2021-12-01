@@ -41,10 +41,7 @@ public class OrderOneProductWithCouponTest extends BaseTest{
                 .clickOnCartButton();
         cartPageBL.inputQuantity("1",0);
         cartPageBL.inputCouponToOrder();
-        Thread.sleep(3000);
-        CheckoutPageLiginedNotFirstTimeBL checkoutPageLoginedNotFirstTime =
-                homePageBL.getCheckoutPageLoginedNotFirstTimeBL();
-        checkoutPageLoginedNotFirstTime.completeCheckout();
-
+                homePageBL.getCheckoutPageLoginedNotFirstTimeBL()
+                        .completeCheckout();
     }
 }
