@@ -9,6 +9,7 @@ import pages.product_pages.ProductPage;
 import repository.AppleCinemaModelRepository;
 import repository.ProductPageModelRepository;
 import steps.HomePageBL;
+import steps.MyAccountPageBL;
 import steps.ProductOnSearchPageBL;
 import steps.header_steps.HeaderPageLoginedBL;
 
@@ -36,6 +37,16 @@ public class ProductPageBL {
         clickOnAddToCartButton();
         productPage = new ProductPage();
         return this;
+    }
+    public ProductPageBL  addProductIntoCart()
+    {
+        MyAccountPageBL myAccountPageBL = new MyAccountPageBL();
+       return  myAccountPageBL
+                .clickOnBackToHomePageButton()
+                .getHomePageBL()
+                .clickOnProductTitle("iPhone")
+                .getProductPageBL()
+                .orderUsualProduct();
     }
 
     public ProductPageBL orderProductWithSelectField() {

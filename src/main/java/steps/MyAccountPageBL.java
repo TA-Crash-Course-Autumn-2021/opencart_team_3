@@ -65,6 +65,4 @@ public class MyAccountPageBL {
         return new ChangePasswordPageBL();
     }
 
-
-
 }
