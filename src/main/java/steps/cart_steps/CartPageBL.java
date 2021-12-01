@@ -127,4 +127,12 @@ public class CartPageBL {
     public void successApplyGiftCertificate() {
         Assert.assertEquals(AlertCartPage.getCartAlert(), AlertCartPage.getValidGiftCertificateAlert(), "Invalid or disable coupon");
     }
+
+    public void inputCouponToOrder()
+    {
+        this.clickOnUseCouponCodeButton();
+        this.inputCoupon("2222");
+        this.clickOnApplyCouponCodeButton();
+        this.clickOnCheckoutButton();
+    }
 }
