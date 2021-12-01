@@ -7,7 +7,7 @@ import steps.header_steps.HeaderPageLoginedBL;
 import static enums.URLs.BASE_URL;
 
 public class OrderOneProductWithCouponTest extends BaseTest{
-    //@BeforeSuit
+    //@BeforeTest
     public static HomePageBL loginUser()
     {
         new Navigation().navigateToUrl(BASE_URL.getValue());
