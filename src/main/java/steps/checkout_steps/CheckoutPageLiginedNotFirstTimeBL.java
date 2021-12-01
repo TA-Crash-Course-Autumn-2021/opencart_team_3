@@ -14,7 +14,7 @@ public class CheckoutPageLiginedNotFirstTimeBL {
     public CheckoutPageLiginedNotFirstTimeBL(){
         checkoutPageLoginedNotFirstTime = new CheckoutPageLoginedNotFirstTime();
     }
-    public CheckoutPageLiginedNotFirstTimeBL checkoutBillingDetails(){
+    public CheckoutPageLiginedNotFirstTimeBL checkoutBillingDetails()throws InterruptedException{
         CheckoutModel checkoutModel = CheckoutRepository.getCheckoutModel();
         clickOnExistingBillingDetailsRadioButton();
         clickOnBillingDetailsContinueButton();
@@ -32,12 +32,11 @@ public class CheckoutPageLiginedNotFirstTimeBL {
 
     }
 
-    public void completeCheckout() {
-        this.checkoutBillingDetails();
-        this.AcceptMassageOk();
-        this.clickOnConfirmOrderButton();
-        this.successCheckout();
-    }
+
+
+
+
+
 
     private void inputDeliveryMethodComment(String DeliveryMethodComment){
         checkoutPageLoginedNotFirstTime.getDeliveryMethodComment().click();

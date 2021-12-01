@@ -1,5 +1,6 @@
 import navigation.Navigation;
 import org.testng.annotations.Test;
+import pages.checkout_pages.CheckoutPageLoginedNotFirstTime;
 import steps.HomePageBL;
 import steps.MyAccountPageBL;
 import steps.cart_steps.CartPageBL;
@@ -9,8 +10,8 @@ import steps.header_steps.HeaderPageLoginedBL;
 import static enums.URLs.BASE_URL;
 
 public class OrderOneProductWithCouponTest extends BaseTest{
-    public static HomePageBL loginUser()
-    {
+    @Test
+    public void MakeOrderWithOneProductAsLoginedUserWithCouponTest() throws InterruptedException {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.getHeaderPageUnloginedBL()
@@ -18,11 +19,6 @@ public class OrderOneProductWithCouponTest extends BaseTest{
                 .clickOnLoginButton()
                 .loginValidUser()
                 .successfulLoginCheck();
-        return homePageBL;
-    }
-
-    public static void addProductIntoCart()
-    {
         MyAccountPageBL myAccountPageBL = new MyAccountPageBL();
         myAccountPageBL
                 .clickOnBackToHomePageButton()
@@ -30,23 +26,20 @@ public class OrderOneProductWithCouponTest extends BaseTest{
                 .clickOnProductTitle("iPhone")
                 .getProductPageBL()
                 .orderUsualProduct();
-    }
-
-
-
-    @Test
-    public void MakeOrderWithOneProductAsLoginedUserWithCouponTest() throws InterruptedException {
-        HomePageBL homePageBL = loginUser();
-        addProductIntoCart();
         HeaderPageLoginedBL headerPageLoginedBL = new HeaderPageLoginedBL();
         CartPageBL cartPageBL = headerPageLoginedBL
                 .clickOnCartButton();
-        cartPageBL.inputQuantity("1",0);
-        cartPageBL.inputCouponToOrder();
+                cartPageBL.inputQuantity("1",0);
+                cartPageBL.clickOnUseCouponCodeButton();
+                cartPageBL.inputCoupon("2222");
+                cartPageBL.clickOnApplyCouponCodeButton();
+                cartPageBL.clickOnCheckoutButton();
                 Thread.sleep(3000);
         CheckoutPageLiginedNotFirstTimeBL checkoutPageLoginedNotFirstTime =
                 homePageBL.getCheckoutPageLoginedNotFirstTimeBL();
-        checkoutPageLoginedNotFirstTime.completeCheckout();
-
+        checkoutPageLoginedNotFirstTime.checkoutBillingDetails();
+        checkoutPageLoginedNotFirstTime.AcceptMassageOk();
+        checkoutPageLoginedNotFirstTime.clickOnConfirmOrderButton();
+        checkoutPageLoginedNotFirstTime.successCheckout();
     }
 }
