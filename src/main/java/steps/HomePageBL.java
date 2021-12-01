@@ -1,6 +1,5 @@
 package steps;
 
-import lombok.SneakyThrows;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.containers.ProductContainer;
@@ -14,6 +13,8 @@ import steps.product_page_steps.ProductPageBL;
 import steps.search_steps.SearchFieldBL;
 
 
+import java.util.Collection;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
 public class HomePageBL {
@@ -148,21 +149,31 @@ public class HomePageBL {
         product.getCompareButton().click();
         return this;
     }
-    public  boolean CurrencyIsChanged(String currencyCode)
-    {
-        boolean check = false;
+//    public  boolean CurrencyIsChanged(String currencyCode)
+//    {
+//        boolean check = false;
+//
+//        for (ProductContainer x:homePage.getProducts()) {
+//            if(x.getPrice().contains(currencyCode))
+//                check = true;
+//            else {check = false; break;}
+//        }
+//        return check;
+//    }
+public  boolean CurrencyIsChanged(String currencyCode)
+{
+    AtomicBoolean ch = new AtomicBoolean(false);
+    Collection<ProductContainer> collection = homePage.getProducts();
+    collection.stream()
+            .forEach(i -> {
+                ch.set(i.getPrice().contains(currencyCode));});
+    return ch.get();
+}
 
-        for (ProductContainer x:homePage.getProducts()) {
-            if(x.getPrice().contains(currencyCode))
-                check = true;
-            else {check = false; break;}
-        }
-        return check;
-    }
+
 
     public HomePageBL successfulChangeCurrencyCheck(String currencyCode) {
-        boolean actual = CurrencyIsChanged(currencyCode);
-        Assert.assertEquals(true, actual,"Currency is not changed!");
+        Assert.assertEquals(true, CurrencyIsChanged(currencyCode),"Currency is not changed!");
         return new HomePageBL();
     }
 }
