@@ -16,7 +16,12 @@ public class LoginModelRepository {
                 .password(password)
                 .build();
     }
-
+    public static LoginModel getValidAdminLoginModel() {
+        return LoginModel.getBuilder()
+                .email("admin")
+                .password("admin")
+                .build();
+    }
 
     public static LoginModel getValidLoginModel() {
         return LoginModel.getBuilder()

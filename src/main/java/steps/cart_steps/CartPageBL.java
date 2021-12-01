@@ -116,6 +116,14 @@ public class CartPageBL {
         CartPage.getCheckoutButton().click();
     }
 
+    public void inputCouponToOrder()
+    {
+        this.clickOnUseCouponCodeButton();
+        this.inputCoupon("2222");
+        this.clickOnApplyCouponCodeButton();
+        this.clickOnCheckoutButton();
+    }
+
     public void successApplyCoupon() {
         Assert.assertEquals(AlertCartPage.getCartAlert(), AlertCartPage.getValidCouponAlert(), "Invalid or disable coupon");
     }
