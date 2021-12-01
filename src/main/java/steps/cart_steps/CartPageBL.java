@@ -5,6 +5,7 @@ import pages.cart_pages.AlertCartPage;
 import pages.cart_pages.CartPage;
 import datamodel.CartModel;
 import repository.CartModelRepository;
+import repository.CouponeModelRepository;
 
 public class CartPageBL {
     private AlertCartPage AlertCartPage;
@@ -116,14 +117,6 @@ public class CartPageBL {
         CartPage.getCheckoutButton().click();
     }
 
-    public void inputCouponToOrder()
-    {
-        this.clickOnUseCouponCodeButton();
-        this.inputCoupon("2222");
-        this.clickOnApplyCouponCodeButton();
-        this.clickOnCheckoutButton();
-    }
-
     public void successApplyCoupon() {
         Assert.assertEquals(AlertCartPage.getCartAlert(), AlertCartPage.getValidCouponAlert(), "Invalid or disable coupon");
     }
@@ -139,7 +132,7 @@ public class CartPageBL {
     public void inputCouponToOrder()
     {
         this.clickOnUseCouponCodeButton();
-        this.inputCoupon("2222");
+        this.inputCoupon(CouponeModelRepository.getValidCouponMAodel());
         this.clickOnApplyCouponCodeButton();
         this.clickOnCheckoutButton();
     }
