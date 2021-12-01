@@ -149,17 +149,7 @@ public class HomePageBL {
         product.getCompareButton().click();
         return this;
     }
-//    public  boolean CurrencyIsChanged(String currencyCode)
-//    {
-//        boolean check = false;
-//
-//        for (ProductContainer x:homePage.getProducts()) {
-//            if(x.getPrice().contains(currencyCode))
-//                check = true;
-//            else {check = false; break;}
-//        }
-//        return check;
-//    }
+
 public  boolean CurrencyIsChanged(String currencyCode)
 {
     AtomicBoolean ch = new AtomicBoolean(false);
