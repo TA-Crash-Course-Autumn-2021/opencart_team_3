@@ -1,5 +1,6 @@
 package steps;
 
+import io.qameta.allure.Step;
 import pages.MenuPage;
 
 public class MenuPageBL {
@@ -9,6 +10,7 @@ public class MenuPageBL {
         MenuPage = new MenuPage();
     }
 
+    @Step("click")
     public MenuPageBL clickOnDesktopsMenuButton() {
         MenuPage.getDesktopsMenuButton().click();
         return this;

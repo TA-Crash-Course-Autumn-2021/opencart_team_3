@@ -39,7 +39,6 @@ public class CheckoutPageLoginedNotFirstTime extends BasePage {
     private WebElement confirmOrderButton;
 
     public WebElement getExistingBillingDetailsRadioButton() {
-        wait.until(ExpectedConditions.visibilityOf(existingBillingDetailsRadioButton));
         return existingBillingDetailsRadioButton;
     }
 

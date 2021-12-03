@@ -32,13 +32,6 @@ public class CheckoutPageLiginedNotFirstTimeBL {
 
     }
 
-    public void completeCheckout() {
-        this.checkoutBillingDetails();
-        this.AcceptMassageOk();
-        this.clickOnConfirmOrderButton();
-        this.successCheckout();
-    }
-
     private void inputDeliveryMethodComment(String DeliveryMethodComment){
         checkoutPageLoginedNotFirstTime.getDeliveryMethodComment().click();
         checkoutPageLoginedNotFirstTime.getDeliveryMethodComment().clear();

@@ -11,6 +11,10 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class AppleCinemaPageBL {
 
@@ -106,10 +110,11 @@ public class AppleCinemaPageBL {
         appleCinemaPage.getInputDate().clear();
     }
 
-    private void inputDate(String str) {
+    private void inputDate(LocalDate date) {
         clickDate();
         clearDate();
-        appleCinemaPage.getInputDate().sendKeys(str);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        appleCinemaPage.getInputDate().sendKeys(date.format(formatter));
     }
 
     private void clickTime() {
@@ -120,10 +125,11 @@ public class AppleCinemaPageBL {
         appleCinemaPage.getInputTime().clear();
     }
 
-    private void inputTime(String str) {
+    private void inputTime(LocalTime time) {
         clickTime();
         clearTime();
-        appleCinemaPage.getInputTime().sendKeys(str);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        appleCinemaPage.getInputTime().sendKeys(time.format(formatter));
     }
 
     private void clickDateAndTime() {
@@ -134,10 +140,11 @@ public class AppleCinemaPageBL {
         appleCinemaPage.getInputDateAndTime().clear();
     }
 
-    private void inputDateAndTime(String str) {
+    private void inputDateAndTime(LocalDateTime dateTime) {
         clickDateAndTime();
         clearDateAndTime();
-        appleCinemaPage.getInputDateAndTime().sendKeys(str);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        appleCinemaPage.getInputDateAndTime().sendKeys(dateTime.format(formatter));
     }
 
     private void clickInputQuantity() {
@@ -182,9 +189,8 @@ public class AppleCinemaPageBL {
     }
 
     public void verifyOrderingAppleCinema() {
-        String expectedMessage = "Success";
-        //String nameItem = "Apple Cinema 30";
-        Assert.assertTrue(appleCinemaPage.getSuccessTitle().getText().contains(expectedMessage), "Your product was not added to shopping cart");
-        //Assert.assertTrue(appleCinemaPage.getSuccessTitle().getText().contains(nameItem), "Other product was added to shopping cart");
+        String expectedMessage = "Success: You have added Apple Cinema 30\" to your shopping cart!";
+        Assert.assertTrue(appleCinemaPage.getSuccessTitle().getText().trim().contains(expectedMessage),"Your product was not added to shopping cart");
+        //Assert.assertEquals(appleCinemaPage.getSuccessTitle().getText().trim(), expectedMessage, "Your product was not added to shopping cart");
     }
 }

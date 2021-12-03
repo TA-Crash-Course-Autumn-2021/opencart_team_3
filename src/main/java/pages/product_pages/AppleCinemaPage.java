@@ -18,27 +18,6 @@ public class AppleCinemaPage extends BasePage {
     private WebElement brandButton;
 
 
-    public WebElement getAddToWishListButton() {
-        return addToWishListButton;
-    }
-
-    public WebElement getCompareProductButton() {
-        return compareProductButton;
-    }
-
-    public WebElement getBrandButton() {
-        return brandButton;
-    }
-
-    public WebElement getRadioButton(int value) {  //value is always 5, 6 or 7
-        return driver.findElement(By.xpath("//label//input[@type = 'radio' and @value = '" + value + "']"));
-    }
-
-    public WebElement getCheckbox(int value) {     //value is always 8, 9, 10 or 11
-        return driver.findElement(By.xpath("//label//input[@type = 'checkbox' and @value = '" + value + "']"));
-    }
-
-
     @FindBy(xpath = "//input[contains(@placeholder, 'Text')]")
     private WebElement inputText;
 
@@ -69,6 +48,26 @@ public class AppleCinemaPage extends BasePage {
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private WebElement successTitle;
 
+
+    public WebElement getAddToWishListButton() {
+        return addToWishListButton;
+    }
+
+    public WebElement getCompareProductButton() {
+        return compareProductButton;
+    }
+
+    public WebElement getBrandButton() {
+        return brandButton;
+    }
+
+    public WebElement getRadioButton(int value) {  //value is always 5, 6 or 7
+        return driver.findElement(By.xpath("//label//input[@type = 'radio' and @value = '" + value + "']"));
+    }
+
+    public WebElement getCheckbox(int value) {     //value is always 8, 9, 10 or 11
+        return driver.findElement(By.xpath("//label//input[@type = 'checkbox' and @value = '" + value + "']"));
+    }
 
     public WebElement getInputText() {
         wait.until(ExpectedConditions.visibilityOf(inputText));

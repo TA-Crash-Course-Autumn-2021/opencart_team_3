@@ -5,7 +5,6 @@ import pages.cart_pages.AlertCartPage;
 import pages.cart_pages.CartPage;
 import datamodel.CartModel;
 import repository.CartModelRepository;
-import repository.CouponeModelRepository;
 
 public class CartPageBL {
     private AlertCartPage AlertCartPage;
@@ -15,7 +14,7 @@ public class CartPageBL {
         CartPage = new CartPage();
     }
 
-    public CartPageBL cartProducts(int poductNumber, int country, int zone)  throws InterruptedException {
+    public CartPageBL cartProducts(int poductNumber, int country, int zone)  {
         CartModel cartModel = CartModelRepository.getCartModel();
         inputQuantity("4", poductNumber);
         clickOnUpdateButtons(poductNumber);
@@ -25,7 +24,6 @@ public class CartPageBL {
         clickOnEstimateShippingAndTaxesButton();
         clickOnCountryInput();
         clickOnCountrySelectionButtons(country);
-        clickOnZoneIdInput();
         clickOnZoneIdSelectionButtons(zone);
         inputPostCode(cartModel.getPostCode());
         clickOnUseGiftCertificateButton();
@@ -86,15 +84,11 @@ public class CartPageBL {
     }
 
     private void clickOnCountrySelectionButtons(int value) {
-        CartPage.getCountrySelectionButtons().get(value).click();
-    }
-
-    public void clickOnZoneIdInput() {
-        CartPage.getZoneIdInput().click();
+        CartPage.getCountrySelectionButtons().selectByIndex(value);
     }
 
     private void clickOnZoneIdSelectionButtons(int value) {
-        CartPage.getZoneIdSelectionButtons().get(value).click();
+        CartPage.getZoneIdInput().selectByIndex(value);
     }
 
     public void clickOnGetQuotesButton() {
@@ -127,13 +121,5 @@ public class CartPageBL {
 
     public void successApplyGiftCertificate() {
         Assert.assertEquals(AlertCartPage.getCartAlert(), AlertCartPage.getValidGiftCertificateAlert(), "Invalid or disable coupon");
-    }
-
-    public void inputCouponToOrder()
-    {
-        this.clickOnUseCouponCodeButton();
-        this.inputCoupon(CouponeModelRepository.getValidCouponMAodel());
-        this.clickOnApplyCouponCodeButton();
-        this.clickOnCheckoutButton();
     }
 }

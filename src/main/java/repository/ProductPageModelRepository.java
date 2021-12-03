@@ -1,19 +1,21 @@
 package repository;
 
-import datamodel.AppleCinemaModel;
 import datamodel.ProductPageModel;
+
+import java.time.LocalDate;
 
 public class ProductPageModelRepository {
 
-    private ProductPageModelRepository(){}
+    private ProductPageModelRepository() {
+    }
 
-    public static ProductPageModel orderUsualProductModel(){
+    public static ProductPageModel orderUsualProductModel() {
         return ProductPageModel.builder()
                 .quantity("2")
                 .build();
     }
 
-    public static ProductPageModel orderProductWithSelectFieldModel(){
+    public static ProductPageModel orderProductWithSelectFieldModel() {
         return ProductPageModel.builder()
                 .select(16)
                 .quantity("2")
@@ -29,7 +31,7 @@ public class ProductPageModelRepository {
 
     public static ProductPageModel orderProductWithDeliveryDateFieldModel() {
         return ProductPageModel.builder()
-                .deliveryDate("2022-01-01")
+                .deliveryDate(LocalDate.now())
                 .quantity("3")
                 .build();
     }

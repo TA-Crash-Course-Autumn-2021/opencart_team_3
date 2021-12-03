@@ -1,7 +1,11 @@
 package pages.containers;
 
+import driver.DriverRepository;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import util.DriverUtils;
 
 public class ProductContainer {
 
@@ -33,6 +37,10 @@ public class ProductContainer {
     }
 
     public WebElement getAddToCartButton(){
+        WebDriverWait wait = new WebDriverWait(DriverRepository.DRIVERS.get(), 300);
+        //new DriverUtils().scrollOToElementJS(rootElement.findElement(By.xpath(".//button[contains(@onclick,'cart.add')]")));
+        wait.until(ExpectedConditions.visibilityOf(rootElement.findElement(By.xpath(".//button[contains(@onclick,'cart.add')]"))));
+       // wait.until(ExpectedConditions.elementToBeClickable(rootElement.findElement(By.xpath(".//button[contains(@onclick,'cart.add')]"))));
         return rootElement.findElement(By.xpath(".//button[contains(@onclick,'cart.add')]"));
     }
 

@@ -14,27 +14,23 @@ public class ProductOnSearchPageBL {
         productOnSearchPage = new ProductOnSearchPage();
     }
 
-    public ProductOnSearchPageBL clickOnProductImage(String productName) {
+    private ProductContainer productMethod(String productName) {
         ProductContainer product = productOnSearchPage.getProducts()
                 .stream()
                 .filter(e -> e.getTitle().equals(productName))
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
+        return product;
+    }
 
-
-        product.getProductImage().click();
+    public ProductOnSearchPageBL clickOnProductImage(String productName) {
+        productMethod(productName).getProductImage().click();
         return this;
     }
 
+
     public ProductOnSearchPageBL clickOnProductTitle(String productName) {
-        ProductContainer product = productOnSearchPage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getProductTitleButton().click();
+        productMethod(productName).getProductTitleButton().click();
         return this;
     }
 
@@ -81,52 +77,27 @@ public class ProductOnSearchPageBL {
 
 
     public ProductOnSearchPageBL addProductToCart(String productName) {
-        ProductContainer product = productOnSearchPage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getAddToCartButton().click();
+        productMethod(productName).getAddToCartButton().click();
         return this;
     }
 
 
     public ProductOnSearchPageBL addProductToWishList(String productName) {
-        ProductContainer product = productOnSearchPage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getAddToWishListButton().click();
+        productMethod(productName).getAddToWishListButton().click();
         return this;
     }
 
     public ProductOnSearchPageBL compareProduct(String productName) {
-        ProductContainer product = productOnSearchPage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getCompareButton().click();
+        productMethod(productName).getCompareButton().click();
         return this;
     }
 
     public String getProductTitle(String productName) {
-        ProductContainer product = productOnSearchPage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().contains(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        return product.getTitle();
+        String str = productMethod(productName).getTitle();
+        return str;
     }
 
-    public ProductPageBL getProductPageBL() {return new ProductPageBL();}
+    public ProductPageBL getProductPageBL() {
+        return new ProductPageBL();
+    }
 }
