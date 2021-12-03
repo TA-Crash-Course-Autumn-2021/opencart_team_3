@@ -1,8 +1,10 @@
 package pages.cart_pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import pages.BasePage;
 
 import java.util.List;
@@ -65,6 +67,7 @@ public class CartPage extends BasePage {
     }
 
     public List<WebElement> getQuantityInput() {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//input[contains(@name,'quantity')]/..")));
         return quantityInput;
     }
 
@@ -98,12 +101,12 @@ public class CartPage extends BasePage {
         return countryInput;
     }
 
-    public List<WebElement> getCountrySelectionButtons() {
-        return countrySelectionButtons;
+    public Select getCountrySelectionButtons() {
+        return new Select(driver.findElement(By.xpath("//select[@name = 'country_id']")));
     }
 
-    public WebElement getZoneIdInput() {
-        return zoneIdInput;
+    public Select getZoneIdInput() {
+        return new Select(zoneIdInput);
     }
 
     public List<WebElement> getZoneIdSelectionButtons() {

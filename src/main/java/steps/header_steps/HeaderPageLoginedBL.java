@@ -20,6 +20,7 @@ public class HeaderPageLoginedBL {
         headerPageLogined.getMyAccountButtonDropdown().click();
         return this;
     }
+
     public CartPageBL clickOnCartButton() {
         headerPageLogined.getCartButton().click();
         return new CartPageBL();
@@ -44,6 +45,7 @@ public class HeaderPageLoginedBL {
         headerPageLogined.getLogoutButton().click();
         return this;
     }
+
     public HeaderPageLoginedBL clickOnCheckoutButton(){
         headerPageLogined.getCheckoutButton().click();
         return this;

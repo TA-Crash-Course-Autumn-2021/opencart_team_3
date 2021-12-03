@@ -16,8 +16,16 @@ public class LoginPageBL {
         loginPage = new LoginPage();
     }
 
+    public LoginPageBL loginTestUser() {
+        LoginModel loginModel = LoginModelRepository.getValidTestUserModel();
+        inputEmail(loginModel.getEmail());
+        inputPassword(loginModel.getPassword());
+        clickOnLoginButton();
+        return this;
+    }
+
     public LoginPageBL loginValidUser() {
-       LoginModel loginModel = LoginModelRepository.getValidTestUserModel();
+       LoginModel loginModel = LoginModelRepository.getValidLoginModel();
         inputEmail(loginModel.getEmail());
         inputPassword(loginModel.getPassword());
         clickOnLoginButton();
@@ -39,7 +47,6 @@ public class LoginPageBL {
         clickOnLoginButton();
         return this;
     }
-
 
     private void inputEmail(String email) {
         loginPage.getEmailInput().clear();

@@ -16,6 +16,14 @@ public class LoginModelRepository {
                 .password(password)
                 .build();
     }
+
+    public static LoginModel getValidLoginModel() {
+        return LoginModel.getBuilder()
+                .email("userlogin@gmail.com")
+                .password("123123")
+                .build();
+    }
+
     public static LoginModel getValidAdminLoginModel() {
         return LoginModel.getBuilder()
                 .email("admin")
@@ -23,18 +31,13 @@ public class LoginModelRepository {
                 .build();
     }
 
-    public static LoginModel getValidLoginModel() {
-        return LoginModel.getBuilder()
-                .email("useradressmail@gmail.com")
-                .password("123123")
-                .build();
-    }
     public static LoginModel getValidTestUserModel() {
         return LoginModel.getBuilder().
                 email("test@test.com")
                 .password("12345678")
                 .build();
     }
+
     public static LoginModel getUserOne() {
         return LoginModel.getBuilder().
                 email("afdhahdah@gmail.com")

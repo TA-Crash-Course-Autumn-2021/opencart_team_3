@@ -1,7 +1,6 @@
 package pages.product_pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -52,7 +51,11 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class,'alert')]/a[text()='product comparison']")
     private WebElement productComparisonButtonInAlert;
 
+    @FindBy(xpath = "//div[contains(@class,'alert')]//a[contains(@href,'product')]")
+    private WebElement productNameInAlert;
 
+    @FindBy(xpath = "//*[contains(@class,'col-xs')]")
+    private List<WebElement> products;
 
     public WebElement getAddToWishListButton() {
         return addToWishListButton;
@@ -66,7 +69,9 @@ public class ProductPage extends BasePage {
         return brandButton;
     }
 
-    public WebElement getBackToSearchPageButton() {return backToSearchPageButton;}
+    public WebElement getBackToSearchPageButton() {
+        return backToSearchPageButton;
+    }
 
     public WebElement getBackToHomePageButton() {
         return backToHomePageButton;
@@ -120,17 +125,10 @@ public class ProductPage extends BasePage {
         return productComparisonButtonInAlert;
     }
 
-
-
-//        public WebElement getQuantity() {
-//        wait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(quantity));
-//        return quantity; }
-
-
-    //Related Products Section
-
-    @FindBy(xpath = "//*[contains(@class,'col-xs')]")
-    private List<WebElement> products;
+    public WebElement getProductNameInAlert() {
+        wait.until(ExpectedConditions.visibilityOf(productNameInAlert));
+        return productNameInAlert;
+    }
 
     public List<ProductContainer> getProducts() {
 
@@ -139,7 +137,6 @@ public class ProductPage extends BasePage {
             productContainers.add(new ProductContainer(element));
         }
         return productContainers;
-        //return products.stream().map(ProductContainer::new).collect(Collectors.toList());
     }
 
 }

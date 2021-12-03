@@ -1,7 +1,6 @@
 package repository;
 
 import datamodel.ChangePasswordModel;
-import datamodel.RegisterModel;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class ChangePasswordModelRepository {
@@ -11,7 +10,6 @@ public class ChangePasswordModelRepository {
 
     public static ChangePasswordModel getValidChangePasswordModel() {
         String password = LoginModelRepository.getValidLoginModel().getPassword();
-       // String password = RandomStringUtils.randomAlphabetic(6);
         return ChangePasswordModel.getBuilder()
                 .password(password)
                 .passwordConfirm(password)

@@ -3,9 +3,14 @@ package repository;
 import datamodel.AppleCinemaModel;
 import org.apache.commons.lang3.RandomStringUtils;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 public class AppleCinemaModelRepository {
 
-    private AppleCinemaModelRepository() {}
+    private AppleCinemaModelRepository() {
+    }
 
     public static AppleCinemaModel getAppleCinemaModel() {
         return AppleCinemaModel.builder()
@@ -15,9 +20,9 @@ public class AppleCinemaModelRepository {
                 .select(4)
                 .textArea(RandomStringUtils.randomAlphabetic(8))
                 .uploadFile("src/test/resources/FileForUploading.txt")
-                .date("2022-01-01")
-                .time("00:00")
-                .dateAndTime("2022-01-01 00:00")
+                .date(LocalDate.now())
+                .time(LocalTime.now())
+                .dateAndTime(LocalDateTime.now())
                 .quantity("3")
                 .build();
     }
