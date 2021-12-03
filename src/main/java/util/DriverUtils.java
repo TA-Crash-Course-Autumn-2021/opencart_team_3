@@ -17,6 +17,10 @@ public class DriverUtils {
         getJSExecutor().executeScript("arguments[0].click();", webElement);
     }
 
+    public void scrollOToElementJS(WebElement webElement){
+        getJSExecutor().executeScript("arguments[0].scrollIntoView(false);", webElement);
+    }
+
     private JavascriptExecutor getJSExecutor() {
         return (JavascriptExecutor) driver;
     }

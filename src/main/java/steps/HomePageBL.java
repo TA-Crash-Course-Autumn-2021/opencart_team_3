@@ -2,7 +2,6 @@ package steps;
 
 import org.testng.Assert;
 import pages.HomePage;
-import pages.checkout_pages.SuccessOrderPage;
 import pages.containers.ProductContainer;
 import steps.cart_steps.CartPageBL;
 import steps.checkout_steps.CheckoutPageLiginedNotFirstTimeBL;
@@ -12,7 +11,7 @@ import steps.checkout_steps.CheckoutPageLoginedFirstTimeBL;
 import steps.product_page_steps.AppleCinemaPageBL;
 import steps.product_page_steps.ProductPageBL;
 import steps.search_steps.SearchFieldBL;
-
+import util.DriverUtils;
 
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -45,7 +44,6 @@ public class HomePageBL {
     public CartPageBL getCartPageBl(){return new CartPageBL();}
 
     public CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL(){return new CheckoutPageLoginedFirstTimeBL();}
-
     public CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL(){return new CheckoutPageLiginedNotFirstTimeBL();}
 
     public AppleCinemaPageBL getAppleCinemaPageBL(){return new AppleCinemaPageBL();}
@@ -53,27 +51,23 @@ public class HomePageBL {
     public ProductPageBL getProductPageBL() {return new ProductPageBL();}
 
 
-    public HomePageBL clickOnProductImage(String productName) {
+    private ProductContainer productMethod(String productName){
         ProductContainer product = homePage.getProducts()
                 .stream()
                 .filter(e -> e.getTitle().equals(productName))
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
+        return product;
+    }
 
-
-        product.getProductImage().click();
+    public HomePageBL clickOnProductImage(String productName) {
+        productMethod(productName).getProductImage().click();
         return this;
     }
 
+
     public HomePageBL clickOnProductTitle(String productName) {
-        ProductContainer product = homePage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getProductTitleButton().click();
+        productMethod(productName).getProductTitleButton().click();
         return this;
     }
 
@@ -117,51 +111,29 @@ public class HomePageBL {
     }
 
     public HomePageBL addProductToCart(String productName) {
-        ProductContainer product = homePage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-        product.getAddToCartButton().click();
+        new DriverUtils().clickOnElementJS(productMethod(productName).getAddToCartButton());
         return this;
     }
 
 
     public HomePageBL addProductToWishList(String productName) {
-        ProductContainer product = homePage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getAddToWishListButton().click();
+        productMethod(productName).getAddToWishListButton().click();
         return this;
     }
 
     public HomePageBL compareProduct(String productName) {
-        ProductContainer product = homePage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getCompareButton().click();
+        productMethod(productName).getCompareButton().click();
         return this;
     }
 
-public  boolean CurrencyIsChanged(String currencyCode)
-{
-    AtomicBoolean ch = new AtomicBoolean(false);
-    Collection<ProductContainer> collection = homePage.getProducts();
-    collection.stream()
-            .forEach(i -> {
-                ch.set(i.getPrice().contains(currencyCode));});
-    return ch.get();
-}
-
-
+    public  boolean CurrencyIsChanged(String currencyCode) {
+        AtomicBoolean ch = new AtomicBoolean(false);
+        Collection<ProductContainer> collection = homePage.getProducts();
+        collection.stream()
+                .forEach(i -> {
+                    ch.set(i.getPrice().contains(currencyCode));});
+        return ch.get();
+    }
 
     public HomePageBL successfulChangeCurrencyCheck(String currencyCode) {
         Assert.assertEquals(true, CurrencyIsChanged(currencyCode),"Currency is not changed!");

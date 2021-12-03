@@ -1,18 +1,17 @@
 package steps.product_page_steps;
 
-import datamodel.AppleCinemaModel;
 import datamodel.ProductPageModel;
 import org.testng.Assert;
 import pages.containers.ProductContainer;
-import pages.product_pages.AppleCinemaPage;
 import pages.product_pages.ProductPage;
-import repository.AppleCinemaModelRepository;
 import repository.ProductPageModelRepository;
 import steps.HomePageBL;
 import steps.MyAccountPageBL;
 import steps.ProductOnSearchPageBL;
 import steps.header_steps.HeaderPageLoginedBL;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 
 public class ProductPageBL {
@@ -37,16 +36,6 @@ public class ProductPageBL {
         clickOnAddToCartButton();
         productPage = new ProductPage();
         return this;
-    }
-    public ProductPageBL  addProductIntoCart()
-    {
-        MyAccountPageBL myAccountPageBL = new MyAccountPageBL();
-       return  myAccountPageBL
-                .clickOnBackToHomePageButton()
-                .getHomePageBL()
-                .clickOnProductTitle("iPhone")
-                .getProductPageBL()
-                .orderUsualProduct();
     }
 
     public ProductPageBL orderProductWithSelectField() {
@@ -76,6 +65,17 @@ public class ProductPageBL {
         return this;
     }
 
+
+    public ProductPageBL  addProductIntoCart()
+    {
+        MyAccountPageBL myAccountPageBL = new MyAccountPageBL();
+        return  myAccountPageBL
+                .clickOnBackToHomePageButton()
+                .getHomePageBL()
+                .clickOnProductTitle("iPhone")
+                .getProductPageBL()
+                .orderUsualProduct();
+    }
 
     public void clickOnWishListButton() {
         productPage.getAddToWishListButton().click();
@@ -128,10 +128,11 @@ public class ProductPageBL {
         productPage.getInputDeliveryDate().clear();
     }
 
-    private void inputDeliveryDate(String str) {
+    private void inputDeliveryDate(LocalDate date) {
         clickDeliveryDate();
         clearDeliveryDate();
-        productPage.getInputDeliveryDate().sendKeys(str);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        productPage.getInputDeliveryDate().sendKeys(date.format(formatter));
     }
 
 
@@ -153,6 +154,7 @@ public class ProductPageBL {
         productPage.getAddToCartButton().click();
     }
 
+
     public void clickOnShoppingCartButtonInAlert() {
         productPage.getShoppingCartButtonInAlert().click();
     }
@@ -161,39 +163,40 @@ public class ProductPageBL {
         productPage.getProductComparisonButtonInAlert().click();
     }
 
+    public String getTextWithProductNameInAlert(){
+        String name = productPage.getProductNameInAlert().getText();
+        return name;
+    }
+
     public void verifyProductOrdering() {
-        String expectedMessage = "Success";
-        Assert.assertTrue(productPage.getSuccessTitle().getText().contains(expectedMessage), "Your product was not added to shopping cart");
+        String expectedMessage = "Success: You have added " +getTextWithProductNameInAlert()+ " to your shopping cart!";
+        Assert.assertTrue(productPage.getSuccessTitle().getText().trim().contains(expectedMessage), "Your product was not added to shopping cart");
     }
 
     public void verifyProductCompare() {
-        String expectedMessage = "Success";
-        Assert.assertTrue(productPage.getSuccessTitle().getText().contains(expectedMessage), "Your product was not added to product comparison");
+        String expectedMessage = "Success: You have added " +getTextWithProductNameInAlert()+ " to your product comparison!";
+        Assert.assertTrue(productPage.getSuccessTitle().getText().trim().contains(expectedMessage), "Your product was not added to product comparison");
     }
 
     //Related Products Section
 
-    public ProductPageBL clickOnProductImage(String productName) {
+
+    private ProductContainer productMethod(String productName){
         ProductContainer product = productPage.getProducts()
                 .stream()
                 .filter(e -> e.getTitle().equals(productName))
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
+        return product;
+    }
 
-
-        product.getProductImage().click();
+    public ProductPageBL clickOnProductImage(String productName) {
+        productMethod(productName).getProductImage().click();
         return this;
     }
 
     public ProductPageBL clickOnProductTitle(String productName) {
-        ProductContainer product = productPage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getProductTitleButton().click();
+        productMethod(productName).getProductTitleButton().click();
         return this;
     }
 
@@ -240,39 +243,18 @@ public class ProductPageBL {
 
 
     public ProductPageBL addProductToCart(String productName) {
-        ProductContainer product = productPage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getAddToCartButton().click();
+        productMethod(productName).getAddToCartButton().click();
         return this;
     }
 
 
     public ProductPageBL addProductToWishList(String productName) {
-        ProductContainer product = productPage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getAddToWishListButton().click();
+        productMethod(productName).getAddToWishListButton().click();
         return this;
     }
 
     public ProductPageBL compareProduct(String productName) {
-        ProductContainer product = productPage.getProducts()
-                .stream()
-                .filter(e -> e.getTitle().equals(productName))
-                .findFirst()
-                .orElseThrow(NullPointerException::new);
-
-
-        product.getCompareButton().click();
+        productMethod(productName).getCompareButton().click();
         return this;
     }
 
