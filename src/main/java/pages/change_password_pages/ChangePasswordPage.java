@@ -18,12 +18,6 @@ public class ChangePasswordPage extends BasePage {
     @FindBy(xpath = ".//*[@type='submit']")
     private WebElement continueButton;
 
-    @FindBy(xpath = "//a[text() = 'Back']")
-    private WebElement backButton;
-
-    @FindBy(xpath = "//i[@class = 'fa fa-check-circle']")
-    private WebElement successLoginAlert;//new
-
     public WebElement getPasswordInput() {
         return passwordInput;
     }
@@ -32,13 +26,12 @@ public class ChangePasswordPage extends BasePage {
         return passwordConfirmInput;
     }
 
-    public String getUnsuccessfulChangePasswordMatch() { return unsuccessfulChangePasswordMatch.getText(); }
+    public String getUnsuccessfulChangePasswordMatch() {
+        return unsuccessfulChangePasswordMatch.getText();
+    }
 
     public WebElement getContinueButton() {
         return continueButton;
     }
 
-    public WebElement getBackButton() {
-        return backButton;
-    }
 }

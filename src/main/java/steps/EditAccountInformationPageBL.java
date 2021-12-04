@@ -8,7 +8,7 @@ import repository.EditAccountModelRepository;
 
 public class EditAccountInformationPageBL {
 
-    private EditAccountInformationPage editAccountInformationPage;
+    private final EditAccountInformationPage editAccountInformationPage;
     private SuccessEditAccountPage successEditAccountPage;
 
     public EditAccountInformationPageBL() {
@@ -86,10 +86,6 @@ public class EditAccountInformationPageBL {
 
     private void clickOnContinueButton() {
         editAccountInformationPage.getContinueButton().click();
-    }
-
-    private void clickOnBackButton() {
-        editAccountInformationPage.getBackButton().click();
     }
 
 

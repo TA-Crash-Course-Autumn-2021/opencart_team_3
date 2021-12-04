@@ -13,7 +13,6 @@ import util.DriverUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.stream.Collectors;
 
 public class ProductPageBL {
 
@@ -166,8 +165,7 @@ public class ProductPageBL {
     }
 
     public String getTextWithProductNameInAlert() {
-        String name = productPage.getProductNameInAlert().getText();
-        return name;
+        return productPage.getProductNameInAlert().getText();
     }
 
     public void verifyProductOrdering() {
@@ -189,12 +187,11 @@ public class ProductPageBL {
 
 
     private ProductContainer productMethod(String productName) {
-        ProductContainer product = productPage.getProducts()
+        return productPage.getProducts()
                 .stream()
                 .filter(e -> e.getTitle().equals(productName))
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
-        return product;
     }
 
     public ProductPageBL clickOnProductImage(String productName) {
@@ -241,7 +238,6 @@ public class ProductPageBL {
 
     public ProductPageBL compareProduct(String productName) {
         new DriverUtils().clickOnElementJS(productMethod(productName).getCompareButton());
-        // productMethod(productName).getCompareButton().click();
         return this;
     }
 

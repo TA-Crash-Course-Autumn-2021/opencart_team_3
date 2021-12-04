@@ -4,7 +4,7 @@ import pages.MyAccountPage;
 
 public class MyAccountPageBL {
 
-    private MyAccountPage myAccountPage;
+    private final MyAccountPage myAccountPage;
 
     public MyAccountPageBL() {
         myAccountPage = new MyAccountPage();

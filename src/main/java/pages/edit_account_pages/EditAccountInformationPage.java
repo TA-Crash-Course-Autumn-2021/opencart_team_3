@@ -21,9 +21,6 @@ public class EditAccountInformationPage extends BasePage {
     @FindBy(xpath = ".//*[@type='submit']")
     private WebElement continueButton;
 
-    @FindBy(xpath = "//a[text() = 'Back']")
-    private WebElement backButton;
-
     public WebElement getFirstNameInput() {
         return firstNameInput;
     }
@@ -44,7 +41,4 @@ public class EditAccountInformationPage extends BasePage {
         return continueButton;
     }
 
-    public WebElement getBackButton() {
-        return backButton;
-    }
 }

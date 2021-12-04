@@ -1,9 +1,7 @@
 package steps;
 
 import driver.DriverRepository;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.HomePage;
@@ -25,16 +23,15 @@ public class HomePageBL {
 
     public HomePage homePage;
 
-
     public HomePageBL() {
         homePage = new HomePage();
     }
 
-    public static HeaderPageUnloginedBL getHeaderPageUnloginedBL() {
+    public HeaderPageUnloginedBL getHeaderPageUnloginedBL() {
         return new HeaderPageUnloginedBL();
     }
 
-    public static HeaderPageLoginedBL getHeaderPageLoginedBL() {
+    public HeaderPageLoginedBL getHeaderPageLoginedBL() {
         return new HeaderPageLoginedBL();
     }
 
@@ -52,11 +49,11 @@ public class HomePageBL {
 
     public MenuPageBL getMenuPageBL(){return new MenuPageBL();}
 
-    public static CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL() {
+    public CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL() {
         return new CheckoutPageLoginedFirstTimeBL();
     }
 
-    public static CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL() {
+    public CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL() {
         return new CheckoutPageLiginedNotFirstTimeBL();
     }
 

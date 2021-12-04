@@ -14,12 +14,11 @@ public class ProductOnSearchPageBL {
     }
 
     private ProductContainer productMethod(String productName) {
-        ProductContainer product = productOnSearchPage.getProducts()
+        return productOnSearchPage.getProducts()
                 .stream()
                 .filter(e -> e.getTitle().equals(productName))
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
-        return product;
     }
 
     public ProductOnSearchPageBL clickOnProductImage(String productName) {

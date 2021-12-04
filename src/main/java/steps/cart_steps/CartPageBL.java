@@ -27,7 +27,7 @@ public class CartPageBL {
         inputCoupon(cartModel.getCoupon());
         clickOnApplyCouponCodeButton() ;
         clickOnEstimateShippingAndTaxesButton();
-        //clickOnCountryInput();
+        clickOnCountryInput();
         clickOnCountrySelectionButtons(country);
         clickOnZoneIdSelectionButtons(zone);
         inputPostCode(cartModel.getPostCode());
@@ -136,7 +136,7 @@ public class CartPageBL {
         Assert.assertEquals(AlertCartPage.getCartAlert(), AlertCartPage.getValidGiftCertificateAlert(), "Invalid or disable coupon");
     }
 
-public void cleanCart(){
+    public void cleanCart(){
         try{
             Assert.assertTrue (CartPage.getEmptyCartAlert().getText().contains("Your shopping cart is empty!"),"Cart is not empty");
         }
@@ -145,6 +145,6 @@ public void cleanCart(){
                 clickOnRemoveButtons(0);
             }
         }
-}
+    }
 
 }

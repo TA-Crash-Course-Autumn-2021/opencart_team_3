@@ -19,7 +19,7 @@ public class LoginModelRepository {
 
     public static LoginModel getValidLoginModel() {
         return LoginModel.getBuilder()
-                .email("userlogin@gmail.com")
+                .email("userslogin@gmail.com")
                 .password("123123")
                 .build();
     }

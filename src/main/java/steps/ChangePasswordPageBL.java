@@ -8,7 +8,7 @@ import repository.ChangePasswordModelRepository;
 
 public class ChangePasswordPageBL {
 
-    private ChangePasswordPage changePasswordPage;
+    private final ChangePasswordPage changePasswordPage;
     private SuccessChangePasswordPage successChangePasswordPage;
 
     public ChangePasswordPageBL() {
@@ -51,10 +51,6 @@ public class ChangePasswordPageBL {
 
     private void clickOnContinueButton() {
         changePasswordPage.getContinueButton().click();
-    }
-
-    private void clickOnBackButton() {
-        changePasswordPage.getBackButton().click();
     }
 
     public void verifyChangePassword() {
