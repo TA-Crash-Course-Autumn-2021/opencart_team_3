@@ -46,10 +46,12 @@ public class HeaderPageUnlogined extends BasePage {
     }
 
     public WebElement getRegisterButton() {
+        wait.until(ExpectedConditions.visibilityOf(registerButton));
         return registerButton;
     }
 
     public WebElement getLoginButton() {
+        wait.until(ExpectedConditions.visibilityOf(loginButton));
         return loginButton;
     }
 

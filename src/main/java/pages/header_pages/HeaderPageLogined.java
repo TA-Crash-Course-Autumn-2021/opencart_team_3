@@ -1,5 +1,6 @@
 package pages.header_pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -43,7 +44,7 @@ public class HeaderPageLogined extends BasePage {
     @FindBy(xpath = "//nav//i[@class='fa fa-share']")
     private WebElement checkoutButton;
 
-    @FindBy(xpath = "//nav//i[@class='fa fa-shopping-cart']")
+    @FindBy(xpath = "//nav//i[contains(@class,'cart')]")
     private WebElement cartButton;
 
     @FindBy(xpath = "//img[@title='Your Store']")
@@ -83,6 +84,10 @@ public class HeaderPageLogined extends BasePage {
     }
 
     public WebElement getCartButton() {
+       // wait.until(ExpectedConditions.visibilityOf(cartButton));
+        //wait.until(ExpectedConditions.elementToBeClickable(cartButton));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//nav//i[@class='fa fa-share']")));
+
         return cartButton;
     }
 

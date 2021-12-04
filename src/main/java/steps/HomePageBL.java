@@ -1,5 +1,10 @@
 package steps;
 
+import driver.DriverRepository;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import pages.HomePage;
 import pages.containers.ProductContainer;
@@ -20,15 +25,16 @@ public class HomePageBL {
 
     public HomePage homePage;
 
+
     public HomePageBL() {
         homePage = new HomePage();
     }
 
-    public HeaderPageUnloginedBL getHeaderPageUnloginedBL() {
+    public static HeaderPageUnloginedBL getHeaderPageUnloginedBL() {
         return new HeaderPageUnloginedBL();
     }
 
-    public HeaderPageLoginedBL getHeaderPageLoginedBL() {
+    public static HeaderPageLoginedBL getHeaderPageLoginedBL() {
         return new HeaderPageLoginedBL();
     }
 
@@ -46,11 +52,11 @@ public class HomePageBL {
 
     public MenuPageBL getMenuPageBL(){return new MenuPageBL();}
 
-    public CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL() {
+    public static CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL() {
         return new CheckoutPageLoginedFirstTimeBL();
     }
 
-    public CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL() {
+    public static CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL() {
         return new CheckoutPageLiginedNotFirstTimeBL();
     }
 
@@ -135,8 +141,11 @@ public class HomePageBL {
         return new HomePageBL();
     }
 
-    public void successAddToCartAlert() {
-        String expectedMessage = "Success";
-        Assert.assertTrue(homePage.getSuccessAddToCartAlert().getText().contains(expectedMessage), "Your product was not added to product comparison");
+    public void successAddToCartAlert(String ProductName){
+        WebDriverWait wait = new WebDriverWait(DriverRepository.DRIVERS.get(), 300);
+        wait.until(ExpectedConditions.textToBePresentInElement(homePage.getSuccessAddToCartAlert(),ProductName));
+        String expectedMessage1 = "Success: You have added ";
+        String expectedMessage2 = " to your shopping cart!\n" + "×";
+        Assert.assertEquals(homePage.getSuccessAddToCartAlert().getText(),expectedMessage1 + ProductName + expectedMessage2);
     }
 }

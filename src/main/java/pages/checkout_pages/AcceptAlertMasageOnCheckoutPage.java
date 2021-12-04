@@ -1,6 +1,7 @@
 package pages.checkout_pages;
 
 import lombok.SneakyThrows;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.BasePage;
 
 public class AcceptAlertMasageOnCheckoutPage extends BasePage {
@@ -10,7 +11,7 @@ public class AcceptAlertMasageOnCheckoutPage extends BasePage {
 
     @SneakyThrows
     public void getAcceptMassageOk(){
-        Thread.sleep(5000);
+        wait.until(ExpectedConditions.alertIsPresent());
         acceptMassageOk();
     }
 }

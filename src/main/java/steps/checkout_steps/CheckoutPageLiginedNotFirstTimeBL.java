@@ -34,7 +34,7 @@ public class CheckoutPageLiginedNotFirstTimeBL {
 
     public void completeCheckout() {
         this.checkoutBillingDetails();
-        this.AcceptMassageOk();
+        this.acceptMassageOk();
         this.clickOnConfirmOrderButton();
         this.successCheckout();
     }
@@ -84,7 +84,7 @@ public class CheckoutPageLiginedNotFirstTimeBL {
         String expected = "Thanks for shopping with us online!";
         Assert.assertEquals(successOrderPage.getSuccessTitle().getText(),expected,"Successful");
     }
-    public void AcceptMassageOk(){
+    public void acceptMassageOk(){
         AcceptAlertMasageOnCheckoutPage AcceptAlertMasageOnCheckoutPage = new AcceptAlertMasageOnCheckoutPage();
         AcceptAlertMasageOnCheckoutPage.getAcceptMassageOk();
     }
