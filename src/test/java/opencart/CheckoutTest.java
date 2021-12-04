@@ -18,11 +18,18 @@ public class CheckoutTest extends BaseTest {
                 .registerNewValidPerson();
         HomePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         HomePageBL.addProductToCart("iPhone");
+        Thread.sleep(2000);
         HomePageBL.addProductToCart("MacBook");
+        Thread.sleep(2000);
         HomePageBL.getHeaderPageLoginedBL().clickOnCheckoutButton();
+        Thread.sleep(2000);
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().checkoutBillingDetails(1, 1);
+        Thread.sleep(10000);
+        //mainPageBL.getCheckotPageLoginedNotFirstTimeBL().acceptMassage();
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().acceptMassageOk();
+        Thread.sleep(5000);
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().clickOnConfirmOrderButton();
+        Thread.sleep(2000);
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().successCheckout();
     }
 

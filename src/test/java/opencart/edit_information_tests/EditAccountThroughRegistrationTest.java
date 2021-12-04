@@ -1,5 +1,8 @@
 package opencart.edit_information_tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import navigation.Navigation;
 import opencart.BaseTest;
 import org.testng.annotations.BeforeClass;
@@ -22,6 +25,9 @@ public class EditAccountThroughRegistrationTest extends BaseTest {
                 .registerNewValidPerson();
     }
 
+
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify changing of all account information after registration")
     @Test
     public void changeAllAccountThroughRegistrationTest() {
         HomePageBL homePageBL = new HomePageBL();
@@ -34,6 +40,8 @@ public class EditAccountThroughRegistrationTest extends BaseTest {
         editAccountInformationPageBL.verifyEditAccount();
     }
 
+    @Severity(SeverityLevel.MINOR)
+    @Description("Verify changing of account first name after registration")
     @Test
     public void changeUserFirstNameThroughRegistrationTest() {
         HomePageBL homePageBL = new HomePageBL();

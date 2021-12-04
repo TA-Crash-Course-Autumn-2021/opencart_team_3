@@ -1,5 +1,8 @@
 package opencart.stories.using_product_page_stories;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import navigation.Navigation;
 import opencart.BaseTest;
 import org.testng.annotations.BeforeClass;
@@ -23,9 +26,11 @@ public class UsingProductPageLoginedTest extends BaseTest {
                 .loginValidUser();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify making order with 1 product from product page after user login")
     @Test
-    public void MakeOrderWithOneProductAsLoginedUserTest() {
-        CheckoutPageLiginedNotFirstTimeBL checkotPageLoginedNotFirstTimeBL = new CheckoutPageLiginedNotFirstTimeBL();
+    public void makeOrderWithOneProductAsLoginedUserTest() {
+        CheckoutPageLiginedNotFirstTimeBL checkoutPageLoginedNotFirstTimeBL = new CheckoutPageLiginedNotFirstTimeBL();
         ProductPageBL productPageBL = new ProductPageBL();
         MyAccountPageBL myAccountPageBL = new MyAccountPageBL();
         myAccountPageBL
@@ -38,16 +43,18 @@ public class UsingProductPageLoginedTest extends BaseTest {
                 .getHeaderPageLoginedBL()
                 .clickOnCheckoutButton()
                 .getCheckotPageLoginedNotFirstTimeBL();
-        checkotPageLoginedNotFirstTimeBL
+        checkoutPageLoginedNotFirstTimeBL
                 .checkoutBillingDetails()
                 .acceptMassageOk();
-        checkotPageLoginedNotFirstTimeBL.clickOnConfirmOrderButton();
-        checkotPageLoginedNotFirstTimeBL.successCheckout();
+        checkoutPageLoginedNotFirstTimeBL.clickOnConfirmOrderButton();
+        checkoutPageLoginedNotFirstTimeBL.successCheckout();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify making order with 2 products from product page after user login")
     @Test
-    public void MakeOrderWithTwoProductsAsLoginedUserTest() {
-        CheckoutPageLiginedNotFirstTimeBL checkotPageLoginedNotFirstTimeBL = new CheckoutPageLiginedNotFirstTimeBL();
+    public void makeOrderWithTwoProductsAsLoginedUserTest() {
+        CheckoutPageLiginedNotFirstTimeBL checkoutPageLoginedNotFirstTimeBL = new CheckoutPageLiginedNotFirstTimeBL();
         ProductPageBL productPageBL = new ProductPageBL();
         MyAccountPageBL myAccountPageBL = new MyAccountPageBL();
         myAccountPageBL
@@ -66,17 +73,18 @@ public class UsingProductPageLoginedTest extends BaseTest {
                 .getHeaderPageLoginedBL()
                 .clickOnCheckoutButton()
                 .getCheckotPageLoginedNotFirstTimeBL();
-        checkotPageLoginedNotFirstTimeBL
+        checkoutPageLoginedNotFirstTimeBL
                 .checkoutBillingDetails()
                 .acceptMassageOk();
-        checkotPageLoginedNotFirstTimeBL.clickOnConfirmOrderButton();
-        checkotPageLoginedNotFirstTimeBL.successCheckout();
+        checkoutPageLoginedNotFirstTimeBL.clickOnConfirmOrderButton();
+        checkoutPageLoginedNotFirstTimeBL.successCheckout();
     }
 
-
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify making order with 3 products from product page after user login")
     @Test
-    public void MakeOrderWithThreeProductsAsLoginedUserTest() {
-        CheckoutPageLiginedNotFirstTimeBL checkotPageLoginedNotFirstTimeBL = new CheckoutPageLiginedNotFirstTimeBL();
+    public void makeOrderWithThreeProductsAsLoginedUserTest() {
+        CheckoutPageLiginedNotFirstTimeBL checkoutPageLoginedNotFirstTimeBL = new CheckoutPageLiginedNotFirstTimeBL();
         ProductPageBL productPageBL = new ProductPageBL();
         MyAccountPageBL myAccountPageBL = new MyAccountPageBL();
         myAccountPageBL
@@ -100,11 +108,11 @@ public class UsingProductPageLoginedTest extends BaseTest {
                 .getHeaderPageLoginedBL()
                 .clickOnCheckoutButton()
                 .getCheckotPageLoginedNotFirstTimeBL();
-        checkotPageLoginedNotFirstTimeBL
+        checkoutPageLoginedNotFirstTimeBL
                 .checkoutBillingDetails()
                 .acceptMassageOk();
-        checkotPageLoginedNotFirstTimeBL.clickOnConfirmOrderButton();
-        checkotPageLoginedNotFirstTimeBL.successCheckout();
+        checkoutPageLoginedNotFirstTimeBL.clickOnConfirmOrderButton();
+        checkoutPageLoginedNotFirstTimeBL.successCheckout();
     }
 
 }

@@ -1,5 +1,8 @@
 package opencart.stories.using_product_page_stories;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import navigation.Navigation;
 import opencart.BaseTest;
 import org.testng.annotations.BeforeClass;
@@ -22,11 +25,12 @@ public class UsingProductPageAsGuestTest extends BaseTest {
                 .registerNewValidPerson();
     }
 
-
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify making order with 1 product from product page after user registration")
     @Test
-    public void MakeOrderWithOneProductAsGuestUserTest() {
+    public void makeOrderWithOneProductAsGuestUserTest() {
         HomePageBL homePageBL = new HomePageBL();
-        CheckoutPageLoginedFirstTimeBL checkotPageLoginedFirstTimeBL = new CheckoutPageLoginedFirstTimeBL();
+        CheckoutPageLoginedFirstTimeBL checkoutPageLoginedFirstTimeBL = new CheckoutPageLoginedFirstTimeBL();
         ProductPageBL productPageBL = new ProductPageBL();
         homePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         homePageBL.getMenuPageBL().clickOnDesktopsMenuButton()
@@ -39,16 +43,17 @@ public class UsingProductPageAsGuestTest extends BaseTest {
                 .getHeaderPageLoginedBL()
                 .clickOnCheckoutButton()
                 .getCheckotPageLoginedNotFirstTimeBL();
-        checkotPageLoginedFirstTimeBL
+        checkoutPageLoginedFirstTimeBL
                 .checkoutBillingDetails(1, 1)
                 .acceptMassageOk();
-        checkotPageLoginedFirstTimeBL.clickOnConfirmOrderButton();
-        checkotPageLoginedFirstTimeBL.successCheckout();
+        checkoutPageLoginedFirstTimeBL.clickOnConfirmOrderButton();
+        checkoutPageLoginedFirstTimeBL.successCheckout();
     }
 
-
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify ordering product with select field from product page after user registration")
     @Test
-    public void MakeOrderWithOneProductAsGuestUserNegativeTest() {
+    public void makeOrderWithOneProductAsGuestUserNegativeTest() {
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         homePageBL.clickOnProductTitle("Canon EOS 5D")

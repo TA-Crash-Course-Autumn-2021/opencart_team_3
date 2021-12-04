@@ -13,24 +13,24 @@ public class UsingSearchPageCheckoutTest extends BaseTest {
     public void orderOneProductFromSearchPage(){
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
-        HomePageBL.getHeaderPageUnloginedBL()
+        homePageBL.getHeaderPageUnloginedBL()
                 .clickOnMyAccountButton()
                 .clickOnLoginButton()
                 .loginValidUser()
                 .successfulLoginCheck();
         homePageBL.getHeaderPageLoginedBL().clickOnCartButton();
         homePageBL.getCartPageBl().cleanCart();
-        HomePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
+        homePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         homePageBL.getSearchField()
                 .inputSearchRequest("MacBook Air")
                 .clickOnSearchButton();
         homePageBL.getSearchField().getProductOnSearchPageBL()
                 .addProductToCart("MacBook Air");
         homePageBL.getHeaderPageLoginedBL().clickOnCheckoutButton();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().checkoutBillingDetails();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().acceptMassageOk();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().clickOnConfirmOrderButton();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().successCheckout();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().checkoutBillingDetails();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().acceptMassageOk();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().clickOnConfirmOrderButton();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().successCheckout();
 
 
 
@@ -40,14 +40,14 @@ public class UsingSearchPageCheckoutTest extends BaseTest {
     public void orderTwoProductsFromSearchPage(){
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
-        HomePageBL.getHeaderPageUnloginedBL()
+        homePageBL.getHeaderPageUnloginedBL()
                 .clickOnMyAccountButton()
                 .clickOnLoginButton()
                 .loginValidUser()
                 .successfulLoginCheck();
         homePageBL.getHeaderPageLoginedBL().clickOnCartButton();
         homePageBL.getCartPageBl().cleanCart();
-        HomePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
+        homePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         homePageBL.getSearchField()
                 .inputSearchRequest("MacBook Air")
                 .clickOnSearchButton();
@@ -59,10 +59,10 @@ public class UsingSearchPageCheckoutTest extends BaseTest {
         homePageBL.getSearchField().getProductOnSearchPageBL()
                 .addProductToCart("iPhone");
         homePageBL.getHeaderPageLoginedBL().clickOnCheckoutButton();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().checkoutBillingDetails();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().acceptMassageOk();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().clickOnConfirmOrderButton();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().successCheckout();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().checkoutBillingDetails();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().acceptMassageOk();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().clickOnConfirmOrderButton();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().successCheckout();
 
 
 
@@ -72,14 +72,14 @@ public class UsingSearchPageCheckoutTest extends BaseTest {
     public void orderThreeProductsFromSearchPage(){
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
-        HomePageBL.getHeaderPageUnloginedBL()
+        homePageBL.getHeaderPageUnloginedBL()
                 .clickOnMyAccountButton()
                 .clickOnLoginButton()
                 .loginValidUser()
                 .successfulLoginCheck();
         homePageBL.getHeaderPageLoginedBL().clickOnCartButton();
         homePageBL.getCartPageBl().cleanCart();
-        HomePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
+        homePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         homePageBL.getSearchField()
                 .inputSearchRequest("MacBook Air")
                 .clickOnSearchButton();
@@ -96,9 +96,9 @@ public class UsingSearchPageCheckoutTest extends BaseTest {
         homePageBL.getSearchField().getProductOnSearchPageBL()
                 .addProductToCart("Samsung SyncMaster 941BW");
         homePageBL.getHeaderPageLoginedBL().clickOnCheckoutButton();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().checkoutBillingDetails();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().acceptMassageOk();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().clickOnConfirmOrderButton();
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().successCheckout();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().checkoutBillingDetails();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().acceptMassageOk();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().clickOnConfirmOrderButton();
+        homePageBL.getCheckoutPageLoginedNotFirstTimeBL().successCheckout();
     }
 }
