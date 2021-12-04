@@ -14,13 +14,11 @@ public class MyAccountPage extends BasePage {
     }
 
     public WebElement getTextListGroup(String text) {
-        WebElement element = driver.findElement(By.xpath(".//*[@class = 'list-group']//a[text() = '" + text + "']"));
-        return element;
+        return driver.findElement(By.xpath(".//*[@class = 'list-group']//a[text() = '" + text + "']"));
     }
 
     public WebElement getTextUnstyledGroup(String text) {
-        WebElement element = driver.findElement(By.xpath(".//*[@class = 'list-unstyled']//a[contains(text(),'" + text + "')]"));
-        return element;
+        return driver.findElement(By.xpath(".//*[@class = 'list-unstyled']//a[contains(text(),'" + text + "')]"));
     }
 
 }

@@ -35,6 +35,7 @@ public class CartModel {
             giftCertificate = value;
             return this;
         }
+
         public CartModel.Builder zoneValue(int value){
             zoneValue = value;
             return this;
@@ -43,6 +44,7 @@ public class CartModel {
             countryValue = value;
             return this;
         }
+
         public CartModel build() {
             return CartModel.this;
         }

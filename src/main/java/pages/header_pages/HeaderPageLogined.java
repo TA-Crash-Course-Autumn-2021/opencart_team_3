@@ -84,10 +84,9 @@ public class HeaderPageLogined extends BasePage {
     }
 
     public WebElement getCartButton() {
-       // wait.until(ExpectedConditions.visibilityOf(cartButton));
+        // wait.until(ExpectedConditions.visibilityOf(cartButton));
         //wait.until(ExpectedConditions.elementToBeClickable(cartButton));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//nav//i[@class='fa fa-share']")));
-
         return cartButton;
     }
 

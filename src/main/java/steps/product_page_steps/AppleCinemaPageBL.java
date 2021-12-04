@@ -190,6 +190,6 @@ public class AppleCinemaPageBL {
 
     public void verifyOrderingAppleCinema() {
         String expectedMessage = "Success: You have added Apple Cinema 30\" to your shopping cart!";
-        Assert.assertTrue(appleCinemaPage.getSuccessTitle().getText().trim().contains(expectedMessage),"Your product was not added to shopping cart");
+        Assert.assertTrue(appleCinemaPage.getSuccessTitle().getText().trim().contains(expectedMessage), "Your product was not added to shopping cart");
     }
 }

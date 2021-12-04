@@ -65,7 +65,6 @@ public class CartPage extends BasePage {
     private WebElement emptyCartAlert;
 
 
-
     public List<WebElement> getCartProductsButtons() {
         return cartProductsButtons;
     }
@@ -149,8 +148,10 @@ public class CartPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(CheckoutButton));
         return CheckoutButton;
     }
+
     public WebElement getEmptyCartAlert() {
         wait.until(ExpectedConditions.visibilityOf(CheckoutButton));
         return emptyCartAlert;
     }
+
 }

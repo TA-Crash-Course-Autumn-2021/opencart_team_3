@@ -1,8 +1,6 @@
 package steps;
 
-import io.qameta.allure.Step;
 import pages.MenuPage;
-import steps.header_steps.HeaderPageUnloginedBL;
 
 public class MenuPageBL {
     private MenuPage MenuPage;
