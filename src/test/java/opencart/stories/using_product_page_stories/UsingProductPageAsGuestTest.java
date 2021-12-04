@@ -41,7 +41,7 @@ public class UsingProductPageAsGuestTest extends BaseTest {
                 .getCheckotPageLoginedNotFirstTimeBL();
         checkotPageLoginedFirstTimeBL
                 .checkoutBillingDetails(1, 1)
-                .AcceptMassageOk();
+                .acceptMassageOk();
         checkotPageLoginedFirstTimeBL.clickOnConfirmOrderButton();
         checkotPageLoginedFirstTimeBL.successCheckout();
     }

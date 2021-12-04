@@ -18,18 +18,11 @@ public class CheckoutTest extends BaseTest {
                 .registerNewValidPerson();
         HomePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         HomePageBL.addProductToCart("iPhone");
-        Thread.sleep(2000);
         HomePageBL.addProductToCart("MacBook");
-        Thread.sleep(2000);
         HomePageBL.getHeaderPageLoginedBL().clickOnCheckoutButton();
-        Thread.sleep(2000);
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().checkoutBillingDetails(1, 1);
-        Thread.sleep(10000);
-        //mainPageBL.getCheckotPageLoginedNotFirstTimeBL().acceptMassage();
-        HomePageBL.getCheckoutPageLoginedFirstTimeBL().AcceptMassageOk();
-        Thread.sleep(5000);
+        HomePageBL.getCheckoutPageLoginedFirstTimeBL().acceptMassageOk();
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().clickOnConfirmOrderButton();
-        Thread.sleep(2000);
         HomePageBL.getCheckoutPageLoginedFirstTimeBL().successCheckout();
     }
 
@@ -51,7 +44,7 @@ public class CheckoutTest extends BaseTest {
         Thread.sleep(2000);
         HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().checkoutBillingDetails();
         Thread.sleep(5000);
-        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().AcceptMassageOk();
+        HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().acceptMassageOk();
         Thread.sleep(5000);
         HomePageBL.getCheckoutPageLoginedNotFirstTimeBL().clickOnConfirmOrderButton();
         Thread.sleep(2000);

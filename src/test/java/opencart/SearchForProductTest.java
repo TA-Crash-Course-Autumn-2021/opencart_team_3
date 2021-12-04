@@ -27,4 +27,15 @@ public class SearchForProductTest extends BaseTest {
                 .unsuccessfulProductSearching();
 
     }
+
+    @Test
+    public void searchForProduct() {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+        HomePageBL homePageBL = new HomePageBL();
+        homePageBL.getSearchField()
+                .inputSearchRequest("MacBook")
+                .clickOnSearchButton();
+
+
+    }
 }
