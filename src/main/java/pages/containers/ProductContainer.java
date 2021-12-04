@@ -24,23 +24,32 @@ public class ProductContainer {
         return rootElement.findElement(By.xpath(".//h4/a"));
     }
 
-    public WebElement getProductImage(){
+    public WebElement getProductImage() {
         return rootElement.findElement(By.xpath(".//div[@class='image']"));
     }
 
 
-    public String getPrice(){ return rootElement.findElement(By.className("price")).getText();
+    public String getPrice() {
+        return rootElement.findElement(By.className("price")).getText().substring(0, 7);
     }
 
-    public String getExTax(){
-        return rootElement.findElement(By.xpath(".//*[@class='price-tax']")).getText();
+    public String getNewPrice() {
+        return rootElement.findElement(By.xpath(".//*[@class='price-new']")).getText();
     }
 
-    public WebElement getAddToCartButton(){
+    public String getOldPrice() {
+        return rootElement.findElement(By.xpath(".//*[@class='price-old']")).getText();
+    }
+
+    public String getExTax() {
+        return rootElement.findElement(By.xpath(".//*[@class='price-tax']")).getText().substring(8);
+    }
+
+    public WebElement getAddToCartButton() {
         WebDriverWait wait = new WebDriverWait(DriverRepository.DRIVERS.get(), 300);
         //new DriverUtils().scrollOToElementJS(rootElement.findElement(By.xpath(".//button[contains(@onclick,'cart.add')]")));
         wait.until(ExpectedConditions.visibilityOf(rootElement.findElement(By.xpath(".//button[contains(@onclick,'cart.add')]"))));
-       // wait.until(ExpectedConditions.elementToBeClickable(rootElement.findElement(By.xpath(".//button[contains(@onclick,'cart.add')]"))));
+        // wait.until(ExpectedConditions.elementToBeClickable(rootElement.findElement(By.xpath(".//button[contains(@onclick,'cart.add')]"))));
         return rootElement.findElement(By.xpath(".//button[contains(@onclick,'cart.add')]"));
     }
 
@@ -48,7 +57,7 @@ public class ProductContainer {
         return rootElement.findElement(By.xpath(".//button[contains(@data-original-title,'Add')]"));
     }
 
-    public WebElement getCompareButton(){
+    public WebElement getCompareButton() {
         return rootElement.findElement(By.xpath(".//button[contains(@data-original-title,'Compare')]"));
     }
 }

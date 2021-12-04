@@ -45,6 +45,9 @@ public class ProductPage extends BasePage {
     @FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
     private WebElement successTitle;
 
+    @FindBy(xpath = "//div[@class='text-danger']")
+    private WebElement selectAlert;
+
     @FindBy(xpath = "//div[contains(@class,'alert')]//a[contains(@href,'checkout/cart')]")
     private WebElement shoppingCartButtonInAlert;
 
@@ -62,6 +65,7 @@ public class ProductPage extends BasePage {
     }
 
     public WebElement getCompareProductButton() {
+        wait.until(ExpectedConditions.visibilityOf(compareThisProductButton));
         return compareThisProductButton;
     }
 
@@ -87,8 +91,8 @@ public class ProductPage extends BasePage {
         return selectButton;
     }
 
-    public WebElement chooseSelectOption(int value) {   //value is always 15 or 16
-        return driver.findElement(By.xpath("//select[contains(@id, 'input-option')]//option[@value = '" + value + "']"));
+    public WebElement chooseSelectOption(String value) {
+        return driver.findElement(By.xpath("//select[contains(@id, 'input-option')]/option[contains(text(), '" + value + "')]"));
     }
 
     public WebElement getSizeButton() {
@@ -113,6 +117,11 @@ public class ProductPage extends BasePage {
     public WebElement getSuccessTitle() {
         wait.until(ExpectedConditions.visibilityOf(successTitle));
         return successTitle;
+    }
+
+    public WebElement getSelectAlert() {
+        wait.until(ExpectedConditions.visibilityOf(selectAlert));
+        return selectAlert;
     }
 
     public WebElement getShoppingCartButtonInAlert() {

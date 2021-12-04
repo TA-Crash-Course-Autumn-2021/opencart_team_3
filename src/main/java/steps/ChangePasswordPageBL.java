@@ -24,7 +24,7 @@ public class ChangePasswordPageBL {
         return this;
     }
 
-    public ChangePasswordPageBL unsuccessfulChangePassword(){
+    public ChangePasswordPageBL unsuccessfulChangePassword() {
         ChangePasswordModel changePasswordModel = ChangePasswordModelRepository.getInValidChangePasswordModel();
         inputIncorrectPassword(changePasswordModel.getPassword());
         inputIncorrectPasswordConfirm(changePasswordModel.getPasswordConfirm());
@@ -64,7 +64,7 @@ public class ChangePasswordPageBL {
 
     public void verifyChangePasswordsNotMatch() {
         String expectedMessage = "Password confirmation does not match password!";
-        Assert.assertTrue(changePasswordPage.getUnsuccessfulChangePasswordMatch().contains(expectedMessage),"Password and Password confirm are the same");
+        Assert.assertTrue(changePasswordPage.getUnsuccessfulChangePasswordMatch().contains(expectedMessage), "Password and Password confirm are the same");
     }
 
 }

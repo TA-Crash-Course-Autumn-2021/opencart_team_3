@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Builder
 public class ProductPageModel {
 
-    private int select; // 15 or 16
+    private String select;
     private int size; // 13 or 14
     private final LocalDate deliveryDate;
     private String quantity;

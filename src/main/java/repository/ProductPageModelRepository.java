@@ -17,15 +17,15 @@ public class ProductPageModelRepository {
 
     public static ProductPageModel orderProductWithSelectFieldModel() {
         return ProductPageModel.builder()
-                .select(16)
-                .quantity("2")
+                .select("Select")
+                .quantity("1")
                 .build();
     }
 
     public static ProductPageModel orderProductWithSizeFieldModel() {
         return ProductPageModel.builder()
                 .size(13)
-                .quantity("1")
+                .quantity("2")
                 .build();
     }
 
