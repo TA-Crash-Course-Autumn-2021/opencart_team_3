@@ -28,6 +28,7 @@ public class HomePage extends BasePage {
 
     public WebElement getSuccessAddToCartAlert() {
         wait.until(ExpectedConditions.visibilityOf(successAddToCartAlert));
+
         return successAddToCartAlert;
     }
 }

@@ -159,7 +159,7 @@ public class CheckoutPageLoginedFirstTimeBL {
         Assert.assertEquals(successOrderPage.getSuccessTitle().getText(),expected,"Successful");
     }
 
-    public void AcceptMassageOk(){
+    public void acceptMassageOk(){
         AcceptAlertMasageOnCheckoutPage AcceptAlertMasageOnCheckoutPage = new AcceptAlertMasageOnCheckoutPage();
         AcceptAlertMasageOnCheckoutPage.getAcceptMassageOk();
     }

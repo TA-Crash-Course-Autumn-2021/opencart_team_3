@@ -9,6 +9,8 @@ public class CartModel {
     private String Coupon;
     private String PostCode;
     private String giftCertificate;
+    private int zoneValue;
+    private int countryValue;
 
     CartModel(){}
 
@@ -31,6 +33,14 @@ public class CartModel {
         }
         public CartModel.Builder giftCertificate(String value) {
             giftCertificate = value;
+            return this;
+        }
+        public CartModel.Builder zoneValue(int value){
+            zoneValue = value;
+            return this;
+        }
+        public CartModel.Builder countryValue(int value){
+            countryValue = value;
             return this;
         }
         public CartModel build() {

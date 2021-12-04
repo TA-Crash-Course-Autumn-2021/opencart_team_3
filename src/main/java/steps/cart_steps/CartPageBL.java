@@ -1,11 +1,15 @@
 package steps.cart_steps;
 
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.testng.Assert;
 import pages.cart_pages.AlertCartPage;
 import pages.cart_pages.CartPage;
 import datamodel.CartModel;
 import repository.CartModelRepository;
 import repository.CouponeModelRepository;
+import util.DriverUtils;
+
 
 public class CartPageBL {
     private AlertCartPage AlertCartPage;
@@ -15,20 +19,20 @@ public class CartPageBL {
         CartPage = new CartPage();
     }
 
-    public CartPageBL cartProducts(int poductNumber, int country, int zone)  {
+    public CartPageBL cartProducts(int productNumber, int country, int zone)  {
         CartModel cartModel = CartModelRepository.getCartModel();
-        inputQuantity("4", poductNumber);
-        clickOnUpdateButtons(poductNumber);
+        inputQuantity("4", productNumber);
+        clickOnUpdateButtons(productNumber);
         clickOnUseCouponCodeButton();
         inputCoupon(cartModel.getCoupon());
         clickOnApplyCouponCodeButton() ;
         clickOnEstimateShippingAndTaxesButton();
-        clickOnCountryInput();
+        //clickOnCountryInput();
         clickOnCountrySelectionButtons(country);
         clickOnZoneIdSelectionButtons(zone);
         inputPostCode(cartModel.getPostCode());
         clickOnUseGiftCertificateButton();
-        inputGiftCertificate(cartModel.getQuantity());
+        inputGiftCertificate(cartModel.getGiftCertificate());
         clickOnApplyGiftCertificateButton();
         clickOnCheckoutButton();
         return this;
@@ -42,6 +46,7 @@ public class CartPageBL {
     }
 
     private void inputGiftCertificate(String giftCertificate) {
+        CartPage.getUseGiftCertificateInput().click();
         CartPage.getUseGiftCertificateInput().clear();
         CartPage.getUseGiftCertificateInput().sendKeys(giftCertificate);
     }
@@ -65,7 +70,7 @@ public class CartPageBL {
     }
 
     private void clickOnRemoveButtons(int value) {
-        CartPage.getRemoveButtons().get(value).click();
+        new DriverUtils().clickOnElementJS(CartPage.getRemoveButtons().get(value));
     }
 
     public void clickOnUseCouponCodeButton() {
@@ -97,7 +102,7 @@ public class CartPageBL {
     }
 
     public void clickOnUseGiftCertificateButton() {
-        CartPage.getUseGiftCertificateButton().click();
+        new DriverUtils().clickOnElementJS(CartPage.getUseGiftCertificateButton());
     }
 
     public void clickOnApplyGiftCertificateButton() {
@@ -109,7 +114,7 @@ public class CartPageBL {
     }
 
     public void clickOnCheckoutButton() {
-        CartPage.getCheckoutButton().click();
+        new DriverUtils().clickOnElementJS(CartPage.getCheckoutButton());
     }
 
     public void inputCouponToOrder() {
@@ -131,6 +136,15 @@ public class CartPageBL {
         Assert.assertEquals(AlertCartPage.getCartAlert(), AlertCartPage.getValidGiftCertificateAlert(), "Invalid or disable coupon");
     }
 
-
+public void cleanCart(){
+        try{
+            Assert.assertTrue (CartPage.getEmptyCartAlert().getText().contains("Your shopping cart is empty!"),"Cart is not empty");
+        }
+        catch (NoSuchElementException e){
+            for(int x=CartPage.getRemoveButtons().size();0<x;x--){
+                clickOnRemoveButtons(0);
+            }
+        }
+}
 
 }

@@ -26,6 +26,7 @@ public class SmallCartPage extends BasePage {
     private WebElement checkoutButton;
 
 
+
     public WebElement getSmallCartPageButton() {
         return smallCartPageButton;
     }
@@ -47,4 +48,6 @@ public class SmallCartPage extends BasePage {
     public WebElement getCheckoutButton() {
         return checkoutButton;
     }
+
+
 }
