@@ -23,7 +23,7 @@ public class OrderOneProductWithCouponTest extends BaseTest{
     }
 
     @Test
-    public void MakeOrderWithOneProductAsLoginedUserWithCouponTest() throws InterruptedException {
+    public void MakeOrderWithOneProductAsLoginedUserWithCouponTest() {
         HomePageBL homePageBL = loginUser();
         //HomePageBL homePageBL = new HomePageBL();
         homePageBL.getProductPageBL().addProductIntoCart();

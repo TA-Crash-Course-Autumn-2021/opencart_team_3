@@ -10,7 +10,7 @@ import static enums.URLs.BASE_URL;
 public class ProductPageTest extends BaseTest {
 
     @Test
-    public void OrderAppleCinemaUsingProductPageTest()  {
+    public void orderAppleCinemaUsingProductPageTest() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.clickOnProductTitle("Apple Cinema 30" + "\"")
@@ -20,7 +20,7 @@ public class ProductPageTest extends BaseTest {
     }
 
     @Test
-    public void AddOneProductToCompareUsingProductPageTest()  {
+    public void addOneProductToCompareUsingProductPageTest() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.clickOnProductTitle("iPhone")
@@ -30,22 +30,25 @@ public class ProductPageTest extends BaseTest {
     }
 
     @Test(description = "summary")
-    public void addTwoProductsToCompareUsingProductPageTest()  {
+    public void addTwoProductsToCompareUsingProductPageTest() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
-       HomePageBL homePageBL = new HomePageBL();
+        HomePageBL homePageBL = new HomePageBL();
         ProductPageBL productPageBL = new ProductPageBL();
         homePageBL.clickOnProductTitle("iPhone")
                 .getProductPageBL()
-                .compareProduct("Apple Cinema 30" + "\"");
-        productPageBL
-                .clickOnCompareProductButton();
-        productPageBL
+                .clickOnCompareProductButton()
+                .clickOnBackToHomePageButton();
+        homePageBL.getSearchField()
+                .findSearchRequest()
+                .getProductOnSearchPageBL()
+                .clickOnProductTitle("MacBook Pro")
+                .getProductPageBL()
+                .clickOnCompareProductButton()
                 .clickOnProductComparisonButtonInAlert();
-                                                                    //success after 2 retries, or only first
-    }                                                             //if without thread sleeps
+    }
 
     @Test
-    public void AddSixProductsToCompareUsingProductPageTest() {
+    public void addSixProductsToCompareUsingProductPageTest() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.clickOnProductTitle("iPhone")
