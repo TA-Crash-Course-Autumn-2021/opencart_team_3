@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -61,6 +62,7 @@ public class MenuPage extends BasePage {
     }
 
     public WebElement getsSeeAllDesktopsMenuButton() {
+        wait.until(ExpectedConditions.visibilityOf(seeAllDesktopsMenuButton));
         return seeAllDesktopsMenuButton;
     }
 
@@ -119,5 +121,6 @@ public class MenuPage extends BasePage {
     public WebElement getMp3PlayersMenuButtons(int value) {
         return mp3PlayersMenuButtons.get(value);
     }
+
 
 }

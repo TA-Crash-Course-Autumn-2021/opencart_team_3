@@ -13,7 +13,7 @@ public class CheckoutPageLoginedFirstTimeBL {
         checkoutPageLoginedFirstTime = new CheckoutPageLoginedFirstTime();
     }
 
-    public CheckoutPageLoginedFirstTimeBL checkoutBillingDetails(int country, int region) throws InterruptedException {
+    public CheckoutPageLoginedFirstTimeBL checkoutBillingDetails(int country, int region) {
         CheckoutModel checkoutModel = CheckoutRepository.getCheckoutModel();
         //clickOnBillingDetailsButton();
         inputFirstname(checkoutModel.getFirstName());

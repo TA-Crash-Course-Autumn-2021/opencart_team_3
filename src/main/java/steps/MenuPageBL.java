@@ -2,6 +2,7 @@ package steps;
 
 import io.qameta.allure.Step;
 import pages.MenuPage;
+import steps.header_steps.HeaderPageUnloginedBL;
 
 public class MenuPageBL {
     private MenuPage MenuPage;
@@ -10,7 +11,7 @@ public class MenuPageBL {
         MenuPage = new MenuPage();
     }
 
-    @Step("click")
+
     public MenuPageBL clickOnDesktopsMenuButton() {
         MenuPage.getDesktopsMenuButton().click();
         return this;
@@ -89,6 +90,10 @@ public class MenuPageBL {
     public MenuPageBL clickOnSeeAllMp3PlayersMenuButton() {
         MenuPage.getSeeAllMp3PlayersMenuButton().click();
         return this;
+    }
+
+    public DesktopsPageBL getDesktopsPageBL() {
+        return new DesktopsPageBL();
     }
 
 }

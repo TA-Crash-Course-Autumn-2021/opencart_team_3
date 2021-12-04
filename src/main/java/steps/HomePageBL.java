@@ -15,7 +15,6 @@ import util.DriverUtils;
 
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.Collectors;
 
 public class HomePageBL {
 
@@ -41,17 +40,30 @@ public class HomePageBL {
         return new ComparePageBL();
     }
 
-    public CartPageBL getCartPageBl(){return new CartPageBL();}
+    public CartPageBL getCartPageBl() {
+        return new CartPageBL();
+    }
 
-    public CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL(){return new CheckoutPageLoginedFirstTimeBL();}
-    public CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL(){return new CheckoutPageLiginedNotFirstTimeBL();}
+    public MenuPageBL getMenuPageBL(){return new MenuPageBL();}
 
-    public AppleCinemaPageBL getAppleCinemaPageBL(){return new AppleCinemaPageBL();}
+    public CheckoutPageLoginedFirstTimeBL getCheckoutPageLoginedFirstTimeBL() {
+        return new CheckoutPageLoginedFirstTimeBL();
+    }
 
-    public ProductPageBL getProductPageBL() {return new ProductPageBL();}
+    public CheckoutPageLiginedNotFirstTimeBL getCheckoutPageLoginedNotFirstTimeBL() {
+        return new CheckoutPageLiginedNotFirstTimeBL();
+    }
+
+    public AppleCinemaPageBL getAppleCinemaPageBL() {
+        return new AppleCinemaPageBL();
+    }
+
+    public ProductPageBL getProductPageBL() {
+        return new ProductPageBL();
+    }
 
 
-    private ProductContainer productMethod(String productName){
+    private ProductContainer productMethod(String productName) {
         ProductContainer product = homePage.getProducts()
                 .stream()
                 .filter(e -> e.getTitle().equals(productName))
@@ -73,40 +85,22 @@ public class HomePageBL {
 
 
     public HomePageBL getProductPrice(String productName) {
-
-        try {
-            ProductContainer product = homePage.getProducts()
-                    .stream()
-                    .filter(e -> e.getTitle().equals(productName))
-                    .collect(Collectors.toList())
-                    .get(0);
-            //.findFirst()
-            //.orElseThrow(NullPointerException::new);
-
-            System.out.println(product.getPrice().substring(0, 7));
-            //product.getPrice();
-
-        } catch (IndexOutOfBoundsException n ){}
+        productMethod(productName).getPrice();
         return this;
     }
 
+    public HomePageBL getProductNewPrice(String productName) {
+        productMethod(productName).getNewPrice();
+        return this;
+    }
+
+    public HomePageBL getProductOldPrice(String productName) {
+        productMethod(productName).getOldPrice();
+        return this;
+    }
 
     public HomePageBL getProductExTax(String productName) {
-
-        try {
-            ProductContainer product = homePage.getProducts()
-                    .stream()
-                    .filter(e -> e.getTitle().equals(productName))
-                    .collect(Collectors.toList())
-                    .get(0);
-            //.findFirst()
-            //.orElseThrow(NullPointerException::new);
-
-            System.out.println(product.getExTax().substring(8));
-            //String extax = product.getExTax();
-            //.getText().substring(8);
-
-        } catch (IndexOutOfBoundsException n ) {}
+        productMethod(productName).getExTax();
         return this;
     }
 
@@ -126,17 +120,18 @@ public class HomePageBL {
         return this;
     }
 
-    public  boolean CurrencyIsChanged(String currencyCode) {
+    public boolean CurrencyIsChanged(String currencyCode) {
         AtomicBoolean ch = new AtomicBoolean(false);
         Collection<ProductContainer> collection = homePage.getProducts();
         collection.stream()
                 .forEach(i -> {
-                    ch.set(i.getPrice().contains(currencyCode));});
+                    ch.set(i.getPrice().contains(currencyCode));
+                });
         return ch.get();
     }
 
     public HomePageBL successfulChangeCurrencyCheck(String currencyCode) {
-        Assert.assertEquals(true, CurrencyIsChanged(currencyCode),"Currency is not changed!");
+        Assert.assertTrue(CurrencyIsChanged(currencyCode), "Currency is not changed!");
         return new HomePageBL();
     }
 

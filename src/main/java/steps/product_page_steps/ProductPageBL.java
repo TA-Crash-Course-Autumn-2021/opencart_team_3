@@ -9,6 +9,7 @@ import steps.HomePageBL;
 import steps.MyAccountPageBL;
 import steps.ProductOnSearchPageBL;
 import steps.header_steps.HeaderPageLoginedBL;
+import util.DriverUtils;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -26,7 +27,7 @@ public class ProductPageBL {
         return new HomePageBL();
     }
 
-    public HeaderPageLoginedBL getHeaderPageLoginedBL(){
+    public HeaderPageLoginedBL getHeaderPageLoginedBL() {
         return new HeaderPageLoginedBL();
     }
 
@@ -66,10 +67,9 @@ public class ProductPageBL {
     }
 
 
-    public ProductPageBL  addProductIntoCart()
-    {
+    public ProductPageBL addProductIntoCart() {
         MyAccountPageBL myAccountPageBL = new MyAccountPageBL();
-        return  myAccountPageBL
+        return myAccountPageBL
                 .clickOnBackToHomePageButton()
                 .getHomePageBL()
                 .clickOnProductTitle("iPhone")
@@ -100,13 +100,15 @@ public class ProductPageBL {
         return this;
     }
 
-    public ProductOnSearchPageBL getProductOnSearchPageBL() {return new ProductOnSearchPageBL();}
+    public ProductOnSearchPageBL getProductOnSearchPageBL() {
+        return new ProductOnSearchPageBL();
+    }
 
     private void clickSelect() {
         productPage.getSelectButton().click();
     }
 
-    private void chooseSelectDropdown(int value) {
+    private void chooseSelectDropdown(String value) {
         clickSelect();
         productPage.chooseSelectOption(value).click();
     }
@@ -163,25 +165,30 @@ public class ProductPageBL {
         productPage.getProductComparisonButtonInAlert().click();
     }
 
-    public String getTextWithProductNameInAlert(){
+    public String getTextWithProductNameInAlert() {
         String name = productPage.getProductNameInAlert().getText();
         return name;
     }
 
     public void verifyProductOrdering() {
-        String expectedMessage = "Success: You have added " +getTextWithProductNameInAlert()+ " to your shopping cart!";
+        String expectedMessage = "Success: You have added " + getTextWithProductNameInAlert() + " to your shopping cart!";
         Assert.assertTrue(productPage.getSuccessTitle().getText().trim().contains(expectedMessage), "Your product was not added to shopping cart");
     }
 
     public void verifyProductCompare() {
-        String expectedMessage = "Success: You have added " +getTextWithProductNameInAlert()+ " to your product comparison!";
-        Assert.assertTrue(productPage.getSuccessTitle().getText().trim().contains(expectedMessage), "Your product was not added to product comparison");
+        String expectedMessage = "Success: You have added " + getTextWithProductNameInAlert() + " to your product comparison!";
+        Assert.assertTrue(productPage.getSuccessTitle().getText().trim().contains(expectedMessage), "Your product was not added to product comparison!");
+    }
+
+    public void verifySelectAlert() {
+        String expectedMessage = "Select required!";
+        Assert.assertEquals(productPage.getSelectAlert().getText(), expectedMessage, "Your select is correct!");
     }
 
     //Related Products Section
 
 
-    private ProductContainer productMethod(String productName){
+    private ProductContainer productMethod(String productName) {
         ProductContainer product = productPage.getProducts()
                 .stream()
                 .filter(e -> e.getTitle().equals(productName))
@@ -200,44 +207,23 @@ public class ProductPageBL {
         return this;
     }
 
-
     public ProductPageBL getProductPrice(String productName) {
-
-        try {
-            ProductContainer product = productPage.getProducts()
-                    .stream()
-                    .filter(e -> e.getTitle().equals(productName))
-                    .collect(Collectors.toList())
-                    .get(1);
-            //.findFirst()
-            //.orElseThrow(NullPointerException::new);
-
-            System.out.println(product.getPrice().substring(0, 7));
-            //product.getPrice();
-
-        } catch (IndexOutOfBoundsException n) {
-        }
+        productMethod(productName).getPrice();
         return this;
     }
 
+    public ProductPageBL getProductNewPrice(String productName) {
+        productMethod(productName).getNewPrice();
+        return this;
+    }
+
+    public ProductPageBL getProductOldPrice(String productName) {
+        productMethod(productName).getOldPrice();
+        return this;
+    }
 
     public ProductPageBL getProductExTax(String productName) {
-
-        try {
-            ProductContainer product = productPage.getProducts()
-                    .stream()
-                    .filter(e -> e.getTitle().equals(productName))
-                    .collect(Collectors.toList())
-                    .get(1);
-            //.findFirst()
-            //.orElseThrow(NullPointerException::new);
-
-            System.out.println(product.getExTax().substring(8));
-            //String extax = product.getExTax();
-            //.getText().substring(8);
-
-        } catch (IndexOutOfBoundsException n) {
-        }
+        productMethod(productName).getExTax();
         return this;
     }
 
@@ -254,7 +240,8 @@ public class ProductPageBL {
     }
 
     public ProductPageBL compareProduct(String productName) {
-        productMethod(productName).getCompareButton().click();
+        new DriverUtils().clickOnElementJS(productMethod(productName).getCompareButton());
+        // productMethod(productName).getCompareButton().click();
         return this;
     }
 
