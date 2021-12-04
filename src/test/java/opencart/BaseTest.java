@@ -12,9 +12,9 @@ public class BaseTest {
 
     @BeforeSuite
     public void setup(ITestContext iTestContext) {
-        for (ITestNGMethod method : iTestContext.getAllTestMethods()) {
-            method.setRetryAnalyzerClass(RetryAnalyser.class);
-        }
+//        for (ITestNGMethod method : iTestContext.getAllTestMethods()) {
+//            method.setRetryAnalyzerClass(RetryAnalyser.class);
+//        }
         DriverRepository.downloadWebDriver();
     }
 

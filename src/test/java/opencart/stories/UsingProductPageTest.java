@@ -44,7 +44,7 @@ public class UsingProductPageTest extends BaseTest {
         checkotPageLoginedNotFirstTimeBL
                 .checkoutBillingDetails();
         checkotPageLoginedNotFirstTimeBL
-                .AcceptMassageOk();
+                .acceptMassageOk();
         checkotPageLoginedNotFirstTimeBL.clickOnConfirmOrderButton();
         checkotPageLoginedNotFirstTimeBL.successCheckout();
     }
@@ -77,7 +77,7 @@ public class UsingProductPageTest extends BaseTest {
         checkotPageLoginedNotFirstTimeBL
                 .checkoutBillingDetails();
         checkotPageLoginedNotFirstTimeBL
-                .AcceptMassageOk();
+                .acceptMassageOk();
         checkotPageLoginedNotFirstTimeBL.clickOnConfirmOrderButton();
         checkotPageLoginedNotFirstTimeBL.successCheckout();
     }
@@ -116,7 +116,7 @@ public class UsingProductPageTest extends BaseTest {
         checkotPageLoginedNotFirstTimeBL
                 .checkoutBillingDetails();
         checkotPageLoginedNotFirstTimeBL
-                .AcceptMassageOk();
+                .acceptMassageOk();
         checkotPageLoginedNotFirstTimeBL.clickOnConfirmOrderButton();
         checkotPageLoginedNotFirstTimeBL.successCheckout();
     }
@@ -142,7 +142,7 @@ public class UsingProductPageTest extends BaseTest {
         checkotPageLoginedFirstTimeBL
                 .checkoutBillingDetails(1,1);
         checkotPageLoginedFirstTimeBL
-                .AcceptMassageOk();
+                .acceptMassageOk();
         checkotPageLoginedFirstTimeBL.clickOnConfirmOrderButton();
         checkotPageLoginedFirstTimeBL.successCheckout();
     }
