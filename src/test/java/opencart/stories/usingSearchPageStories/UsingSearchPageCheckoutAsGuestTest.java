@@ -13,13 +13,13 @@ public class UsingSearchPageCheckoutAsGuestTest extends BaseTest {
     public void orderThreeProductsFromSearchPage(){
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
-        RegisterPageBL registerPageBL = HomePageBL.getHeaderPageUnloginedBL()
+        RegisterPageBL registerPageBL = homePageBL.getHeaderPageUnloginedBL()
                 .clickOnMyAccountButton()
                 .clickOnRegisterButton()
                 .registerNewValidPerson();
         homePageBL.getHeaderPageLoginedBL().clickOnCartButton();
         homePageBL.getCartPageBl().cleanCart();
-        HomePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
+        homePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         homePageBL.getSearchField()
                 .inputSearchRequest("MacBook Air")
                 .clickOnSearchButton();
@@ -36,9 +36,9 @@ public class UsingSearchPageCheckoutAsGuestTest extends BaseTest {
         homePageBL.getSearchField().getProductOnSearchPageBL()
                 .addProductToCart("Samsung SyncMaster 941BW");
         homePageBL.getHeaderPageLoginedBL().clickOnCheckoutButton();
-        HomePageBL.getCheckoutPageLoginedFirstTimeBL().checkoutBillingDetails(1,1);
-        HomePageBL.getCheckoutPageLoginedFirstTimeBL().acceptMassageOk();
-        HomePageBL.getCheckoutPageLoginedFirstTimeBL().clickOnConfirmOrderButton();
-        HomePageBL.getCheckoutPageLoginedFirstTimeBL().successCheckout();
+        homePageBL.getCheckoutPageLoginedFirstTimeBL().checkoutBillingDetails(1,1);
+        homePageBL.getCheckoutPageLoginedFirstTimeBL().acceptMassageOk();
+        homePageBL.getCheckoutPageLoginedFirstTimeBL().clickOnConfirmOrderButton();
+        homePageBL.getCheckoutPageLoginedFirstTimeBL().successCheckout();
     }
 }

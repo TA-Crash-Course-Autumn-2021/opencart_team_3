@@ -1,14 +1,18 @@
 package opencart;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import navigation.Navigation;
 import org.testng.annotations.Test;
 import steps.HomePageBL;
-import steps.product_page_steps.ProductPageBL;
 
 import static enums.URLs.BASE_URL;
 
 public class ProductPageTest extends BaseTest {
 
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify making order with Apple Cinema from product page")
     @Test
     public void orderAppleCinemaUsingProductPageTest() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
@@ -19,6 +23,8 @@ public class ProductPageTest extends BaseTest {
                 .verifyOrderingAppleCinema();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify adding 1 product to comparison from product page")
     @Test
     public void addOneProductToCompareUsingProductPageTest() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
@@ -29,11 +35,12 @@ public class ProductPageTest extends BaseTest {
                 .verifyProductCompare();
     }
 
-    @Test(description = "summary")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify adding 2 products to comparison from product page")
+    @Test
     public void addTwoProductsToCompareUsingProductPageTest() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
-        ProductPageBL productPageBL = new ProductPageBL();
         homePageBL.clickOnProductTitle("iPhone")
                 .getProductPageBL()
                 .clickOnCompareProductButton()
@@ -47,6 +54,8 @@ public class ProductPageTest extends BaseTest {
                 .clickOnProductComparisonButtonInAlert();
     }
 
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify adding 6 products to comparison from product page")
     @Test
     public void addSixProductsToCompareUsingProductPageTest() {
         new Navigation().navigateToUrl(BASE_URL.getValue());

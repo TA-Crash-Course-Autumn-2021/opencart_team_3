@@ -10,11 +10,11 @@ import steps.RegisterPageBL;
 
 import static enums.URLs.BASE_URL;
 
-public class CartTest extends BaseTest {
+public class CartTest extends BaseTest{
 
 
     @Test
-    public void cartTest() {
+    public void CartTest() throws InterruptedException {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL HomePageBL = new HomePageBL();
         RegisterPageBL registerPageBL = HomePageBL.getHeaderPageUnloginedBL()
@@ -23,30 +23,31 @@ public class CartTest extends BaseTest {
                 .registerNewValidPerson();
         HomePageBL.getHeaderPageLoginedBL().clickOnMainPageButton();
         HomePageBL.addProductToCart("iPhone");
+        Thread.sleep(2000);
+        HomePageBL.addProductToCart("MacBook");
+        Thread.sleep(2000);
+        HomePageBL.getHeaderPageUnloginedBL().clickOnCartPageButton();
+        Thread.sleep(2000);
+        HomePageBL.getCartPageBl().cartProducts(1,4,3);
+    }
+    @Test
+    public void AddToCart1Test() throws InterruptedException {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+        HomePageBL HomePageBL = new HomePageBL();
+        HomePageBL.addProductToCart("iPhone");
+        HomePageBL.successAddToCartAlert("iPhone");
+    }
+    @Test
+    public void AddToCart2Test() throws InterruptedException {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+        HomePageBL HomePageBL = new HomePageBL();
+        HomePageBL.addProductToCart("iPhone");
         HomePageBL.successAddToCartAlert("iPhone");
         HomePageBL.addProductToCart("MacBook");
         HomePageBL.successAddToCartAlert("MacBook");
-        HomePageBL.getHeaderPageLoginedBL().clickOnCartButton();
-        HomePageBL.getCartPageBl().cartProducts(1,1,1);
     }
     @Test
-    public void addToCart1Test(){
-        new Navigation().navigateToUrl(BASE_URL.getValue());
-        HomePageBL HomePageBL = new HomePageBL();
-        HomePageBL.addProductToCart("iPhone");
-       // HomePageBL.successAddToCartAlert();
-    }
-    @Test
-    public void addToCart2Test(){
-        new Navigation().navigateToUrl(BASE_URL.getValue());
-        HomePageBL HomePageBL = new HomePageBL();
-        HomePageBL.addProductToCart("iPhone");
-        HomePageBL.successAddToCartAlert("iPhone");
-        HomePageBL.addProductToCart("MacBook");
-       HomePageBL.successAddToCartAlert("MacBook");
-    }
-    @Test
-    public void addToCart3Test(){
+    public void AddToCart3Test() throws InterruptedException {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL HomePageBL = new HomePageBL();
         HomePageBL.addProductToCart("iPhone");
