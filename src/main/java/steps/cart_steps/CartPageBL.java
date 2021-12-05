@@ -1,7 +1,6 @@
 package steps.cart_steps;
 
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.testng.Assert;
 import pages.cart_pages.AlertCartPage;
 import pages.cart_pages.CartPage;
@@ -19,13 +18,13 @@ public class CartPageBL {
         CartPage = new CartPage();
     }
 
-    public CartPageBL cartProducts(int productNumber, int country, int zone)  {
+    public CartPageBL cartProducts(int productNumber, int country, int zone) {
         CartModel cartModel = CartModelRepository.getCartModel();
         inputQuantity("4", productNumber);
         clickOnUpdateButtons(productNumber);
         clickOnUseCouponCodeButton();
         inputCoupon(cartModel.getCoupon());
-        clickOnApplyCouponCodeButton() ;
+        clickOnApplyCouponCodeButton();
         clickOnEstimateShippingAndTaxesButton();
         clickOnCountryInput();
         clickOnCountrySelectionButtons(country);
@@ -37,7 +36,6 @@ public class CartPageBL {
         clickOnCheckoutButton();
         return this;
     }
-
 
     private void inputPostCode(String postCode) {
         CartPage.getPostcodeInput().click();
@@ -117,15 +115,19 @@ public class CartPageBL {
         new DriverUtils().clickOnElementJS(CartPage.getCheckoutButton());
     }
 
+
     public void inputCouponToOrder() {
         this.clickOnUseCouponCodeButton();
-        this.inputCoupon(CouponeModelRepository.getValidCouponMAodel());
+        this.inputCoupon(CouponeModelRepository.getValidCouponModel());
         this.clickOnApplyCouponCodeButton();
-        this.clickOnCheckoutButton();
+    }
+
+    public String getCartAlert() {
+        return CartPage.getValidCouponAlert().getText();
     }
 
     public void successApplyCoupon() {
-        Assert.assertEquals(AlertCartPage.getCartAlert(), AlertCartPage.getValidCouponAlert(), "Invalid or disable coupon");
+        Assert.assertTrue(CartPage.getValidCouponAlert().getText().contains("Your coupon discount has been applied!"), "Invalid or disable coupon");
     }
 
     public void successModifyCoupon() {
@@ -136,12 +138,11 @@ public class CartPageBL {
         Assert.assertEquals(AlertCartPage.getCartAlert(), AlertCartPage.getValidGiftCertificateAlert(), "Invalid or disable coupon");
     }
 
-    public void cleanCart(){
-        try{
-            Assert.assertTrue (CartPage.getEmptyCartAlert().getText().contains("Your shopping cart is empty!"),"Cart is not empty");
-        }
-        catch (NoSuchElementException e){
-            for(int x=CartPage.getRemoveButtons().size();0<x;x--){
+    public void cleanCart() {
+        try {
+            Assert.assertTrue(CartPage.getEmptyCartAlert().getText().contains("Your shopping cart is empty!"), "Cart is not empty");
+        } catch (NoSuchElementException e) {
+            for (int x = CartPage.getRemoveButtons().size(); 0 < x; x--) {
                 clickOnRemoveButtons(0);
             }
         }

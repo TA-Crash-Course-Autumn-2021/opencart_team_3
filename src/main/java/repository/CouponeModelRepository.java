@@ -14,6 +14,6 @@ public class CouponeModelRepository {
                 .build();
     }
 
-    public static  String getValidCouponMAodel(){return "2222";}
+    public static  String getValidCouponModel(){return "0000";}
 
 }

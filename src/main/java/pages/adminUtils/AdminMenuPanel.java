@@ -13,7 +13,7 @@ public class AdminMenuPanel extends BasePage {
     private WebElement couponsMenuButton;
 
     @FindBy(xpath = "//a/i[@class = 'fa fa-plus']")
-    private WebElement addCouponeButton;
+    private WebElement addCouponButton;
 
     public WebElement getMarketingDropdownMenu() {
         return marketingDropdownMenu;
@@ -24,8 +24,8 @@ public class AdminMenuPanel extends BasePage {
         return couponsMenuButton;
     }
 
-    public WebElement getAddCouponeButton() {
-        wait.until(ExpectedConditions.visibilityOf(addCouponeButton));
-        return addCouponeButton;
+    public WebElement getAddCouponButton() {
+        wait.until(ExpectedConditions.visibilityOf(addCouponButton));
+        return addCouponButton;
     }
 }

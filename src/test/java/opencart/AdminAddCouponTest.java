@@ -3,10 +3,8 @@ package opencart;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import navigation.Navigation;
-import opencart.BaseTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import steps.adminUtils_steps.AdminCouponePageBL;
+import steps.adminUtils_steps.AdminCouponPageBL;
 import steps.adminUtils_steps.AdminLoginPageBL;
 import steps.adminUtils_steps.AdminMenuPanelBL;
 
@@ -34,8 +32,8 @@ public class AdminAddCouponTest extends BaseTest {
                 .clickOnMarketingDropdown()
                 .clickOnCouponsButton()
                 .clickOnAddCouponsButton();
-        AdminCouponePageBL adminCouponePageBL = new AdminCouponePageBL();
-        adminCouponePageBL.fillCouponeDetails().clickOnSaveButton();
-        adminCouponePageBL.successAddingCoupon();
+        AdminCouponPageBL adminCouponPageBL = new AdminCouponPageBL();
+        adminCouponPageBL.fillCouponeDetails().clickOnSaveButton();
+        adminCouponPageBL.successAddingCoupon();
     }
 } 
