@@ -72,9 +72,12 @@ public class HeaderPageUnlogined extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(currencyButton));
         return currencyButton;
     }
-    public WebElement getEuroButton() { return euroButton; }
-
-    public WebElement getPoundsButton() { return poundsButton; }
-
-    public WebElement getDollarButton() { return dollarButton; }
+    public WebElement getCurrencyChoiseButton(String val) {
+        if(val == "$")
+            return dollarButton;
+        if(val == "€")
+            return euroButton;
+        else
+            return poundsButton;
+    }
 }

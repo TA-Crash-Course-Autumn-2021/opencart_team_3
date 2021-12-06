@@ -38,18 +38,8 @@ public class HeaderPageUnloginedBL {
         headerPageUnlogined.getCurrencyButton().click();
         return this;
     }
-
-    public HeaderPageUnloginedBL clickOnEuroButton() {
-        headerPageUnlogined.getEuroButton().click();
-        return this;
-    }
-
-    public HeaderPageUnloginedBL clickOnPoundsButton(){
-        headerPageUnlogined.getPoundsButton().click();
-        return this;
-    }
-    public HeaderPageUnloginedBL clickOnDollarButton(){
-        headerPageUnlogined.getDollarButton().click();
+    public HeaderPageUnloginedBL clickOnSpecialCurrencyButton(String val) {
+        headerPageUnlogined.getCurrencyChoiseButton(val).click();
         return this;
     }
 
