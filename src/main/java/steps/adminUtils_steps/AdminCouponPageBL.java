@@ -1,10 +1,9 @@
 package steps.adminUtils_steps;
 
-import datamodel.CouponeModel;
-import lombok.SneakyThrows;
+import datamodel.CouponModel;
 import org.testng.Assert;
 import pages.adminUtils.AdminCouponPage;
-import repository.CouponeModelRepository;
+import repository.CouponModelRepository;
 
 public class AdminCouponPageBL {
     private AdminCouponPage adminCouponPage;
@@ -13,30 +12,37 @@ public class AdminCouponPageBL {
         adminCouponPage = new AdminCouponPage();
     }
 
-    @SneakyThrows
-    public AdminCouponPageBL fillCouponeDetails() {
-        CouponeModel couponeModel = CouponeModelRepository.getCuponeModel();
-        inputCouponeName(couponeModel.getCouponeName());
-        inputCouponeCode(couponeModel.getCouponeCode());
-        inputDiscount(couponeModel.getDiscount());
-        inputTotalAmount(couponeModel.getTotalAmount());
+    public AdminCouponPageBL fillCouponsDetails() {
+        CouponModel couponModel = CouponModelRepository.getCuponModel();
+        inputCouponName(couponModel.getCouponName());
+        inputCouponCode(couponModel.getCouponCode());
+        inputDiscount(couponModel.getDiscount());
+        inputTotalAmount(couponModel.getTotalAmount());
         return this;
+    }
+    public String fillCouponsDetailsForCode() {
+        CouponModel couponModel = CouponModelRepository.getCuponModel();
+        inputCouponName(couponModel.getCouponName());
+        inputCouponCode(couponModel.getCouponCode());
+        inputDiscount(couponModel.getDiscount());
+        inputTotalAmount(couponModel.getTotalAmount());
+        return couponModel.getCouponCode();
     }
 
     public void clickOnSaveButton() {
         adminCouponPage.getSaveButton().click();
     }
 
-    private void inputCouponeName(String couponeName) {
-        adminCouponPage.getInputCouponeName().click();
-        adminCouponPage.getInputCouponeName().clear();
-        adminCouponPage.getInputCouponeName().sendKeys(couponeName);
+    private void inputCouponName(String couponName) {
+        adminCouponPage.getInputCouponName().click();
+        adminCouponPage.getInputCouponName().clear();
+        adminCouponPage.getInputCouponName().sendKeys(couponName);
     }
 
-    private void inputCouponeCode(String couponeCode) {
-        adminCouponPage.getInputCouponeCode().click();
-        adminCouponPage.getInputCouponeCode().clear();
-        adminCouponPage.getInputCouponeCode().sendKeys(couponeCode);
+    private void inputCouponCode(String couponCode) {
+        adminCouponPage.getInputCouponCode().click();
+        adminCouponPage.getInputCouponCode().clear();
+        adminCouponPage.getInputCouponCode().sendKeys(couponCode);
     }
 
     private void inputDiscount(String discount) {

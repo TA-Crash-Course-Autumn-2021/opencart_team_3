@@ -6,7 +6,7 @@ import pages.cart_pages.AlertCartPage;
 import pages.cart_pages.CartPage;
 import datamodel.CartModel;
 import repository.CartModelRepository;
-import repository.CouponeModelRepository;
+import repository.CouponModelRepository;
 import util.DriverUtils;
 
 
@@ -118,7 +118,13 @@ public class CartPageBL {
 
     public void inputCouponToOrder() {
         this.clickOnUseCouponCodeButton();
-        this.inputCoupon(CouponeModelRepository.getValidCouponModel());
+        this.inputCoupon(CouponModelRepository.getValidCouponModel());
+        this.clickOnApplyCouponCodeButton();
+    }
+
+    public void inputNewCouponToOrder(String code) {
+        this.clickOnUseCouponCodeButton();
+        this.inputCoupon(code);
         this.clickOnApplyCouponCodeButton();
     }
 

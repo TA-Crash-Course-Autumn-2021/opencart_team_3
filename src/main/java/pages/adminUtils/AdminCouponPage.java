@@ -8,10 +8,10 @@ import pages.BasePage;
 @Getter
 public class AdminCouponPage extends BasePage {
     @FindBy(xpath = "//input[@placeholder = 'Coupon Name']")
-    private WebElement inputCouponeName;
+    private WebElement inputCouponName;
 
     @FindBy(xpath = "//input[@placeholder = 'Code']")
-    private WebElement inputCouponeCode;
+    private WebElement inputCouponCode;
 
     @FindBy(xpath = "//input[@placeholder = 'Discount']")
     private WebElement discount;
