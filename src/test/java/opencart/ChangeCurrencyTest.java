@@ -1,5 +1,8 @@
 package opencart;
 
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import lombok.SneakyThrows;
 import navigation.Navigation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -13,7 +16,7 @@ public class ChangeCurrencyTest extends BaseTest {
 
     @DataProvider(name = "data-provider")
     public Object[][] dpMethod(){
-        return new Object[][] {{"€"}, {"£"}, {"$"}};
+        return new Object[][] {{"€"},{"$"},{"£"}};
     }
 
     @BeforeClass
@@ -22,13 +25,14 @@ public class ChangeCurrencyTest extends BaseTest {
         new Navigation().navigateToUrl(BASE_URL.getValue());
     }
 
+    @Severity(SeverityLevel.NORMAL)
     @Test (dataProvider = "data-provider")
-    public void successChangeCurrencyOnHomePageTest(String  val)
+    public void successChangeCurrencyOnHomePageTest2(String val)
     {
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.getHeaderPageUnloginedBL()
-                .clickOnCurrencyButton()
-                .clickOnSpecialCurrencyButton(val);
+                .clickOnCurrencyButton();
+        homePageBL.getHeaderPageUnloginedBL().clickOnCommonCurrencyButton(val);
         homePageBL.successfulChangeCurrencyCheck(val);
     }
 

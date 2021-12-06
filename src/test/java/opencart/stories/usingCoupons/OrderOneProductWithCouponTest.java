@@ -1,5 +1,6 @@
 package opencart.stories.usingCoupons;
 
+import lombok.SneakyThrows;
 import navigation.Navigation;
 import opencart.BaseTest;
 import org.testng.annotations.BeforeClass;
@@ -12,7 +13,7 @@ import static enums.URLs.BASE_URL;
 
 public class OrderOneProductWithCouponTest extends BaseTest {
     @BeforeClass
-    public HomePageBL loginUser() {
+    public void loginUser() {
         new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.getHeaderPageUnloginedBL()
@@ -20,9 +21,9 @@ public class OrderOneProductWithCouponTest extends BaseTest {
                 .clickOnLoginButton()
                 .loginTestUser()
                 .successfulLoginCheck();
-        return homePageBL;
     }
 
+    @SneakyThrows
     @Test
     public void MakeOrderWithOneProductAsLoginedUserWithCouponTest() {
         HomePageBL homePageBL = new HomePageBL();
