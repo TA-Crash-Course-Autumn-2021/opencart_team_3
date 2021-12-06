@@ -1,6 +1,5 @@
 package steps.adminUtils_steps;
 
-import pages.adminUtils.AdminLoginPage;
 import pages.adminUtils.AdminMenuPanel;
 
 public class AdminMenuPanelBL{
@@ -18,6 +17,6 @@ public class AdminMenuPanelBL{
     }
 
     public void clickOnAddCouponsButton() {
-        adminMenuPanel.getAddCouponeButton().click();
+        adminMenuPanel.getAddCouponButton().click();
     }
 }

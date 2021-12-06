@@ -29,6 +29,8 @@ public class CartPage extends BasePage {
     private WebElement couponCodeInput;
     @FindBy(xpath = ".//input[@value = 'Apply Coupon']")
     private WebElement applyCouponCodeButton;
+    @FindBy(xpath = "//*[@id='checkout-cart']/div[@class='alert alert-success alert-dismissible']")
+    private WebElement validCouponAlert;
 
 
     @FindBy(xpath = ".//a[@href = '#collapse-shipping']")
@@ -96,6 +98,10 @@ public class CartPage extends BasePage {
         return applyCouponCodeButton;
     }
 
+    public WebElement getValidCouponAlert() {
+        wait.until(ExpectedConditions.visibilityOf(validCouponAlert));
+        return validCouponAlert;
+    }
 
     public WebElement getEstimateShippingAndTaxesButton() {
         return EstimateShippingAndTaxesButton;

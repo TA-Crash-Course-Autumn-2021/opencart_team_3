@@ -1,5 +1,7 @@
 package pages.header_pages;
 
+import enums.Currencys;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,17 +9,9 @@ import pages.BasePage;
 
 public class HeaderPageUnlogined extends BasePage {
 
+
     @FindBy(xpath =".//*[@id='form-currency']")
     private WebElement currencyButton;
-
-    @FindBy(xpath ="//*[@name = 'EUR']")
-    private WebElement euroButton;
-
-    @FindBy(xpath ="//*[@name = 'GBP']")
-    private WebElement poundsButton;
-
-    @FindBy(xpath ="//*[@name = 'USD']")
-    private WebElement dollarButton;
 
     @FindBy(xpath = ".//*[@title='My Account']")
     private WebElement myAccountButton;
@@ -37,8 +31,7 @@ public class HeaderPageUnlogined extends BasePage {
     @FindBy(xpath = ".//nav//i[@class='fa fa-shopping-cart']")
     private WebElement cartButton;
 
-    public HeaderPageUnlogined() {
-    }
+    public HeaderPageUnlogined() { }
 
     public WebElement getMyAccountButton() {
         wait.until(ExpectedConditions.visibilityOf(myAccountButton));
@@ -72,9 +65,10 @@ public class HeaderPageUnlogined extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(currencyButton));
         return currencyButton;
     }
-    public WebElement getEuroButton() { return euroButton; }
+    public WebElement getCommonCurrencyButton(String val)
+    {
+        String pass = "//*[@name = '"+ val +"']";
+        return driver.findElement(By.xpath(pass));
 
-    public WebElement getPoundsButton() { return poundsButton; }
-
-    public WebElement getDollarButton() { return dollarButton; }
+    }
 }

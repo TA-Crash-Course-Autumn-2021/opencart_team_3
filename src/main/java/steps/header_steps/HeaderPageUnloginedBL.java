@@ -1,5 +1,6 @@
 package steps.header_steps;
 
+import enums.Currencys;
 import pages.header_pages.HeaderPageUnlogined;
 import steps.RegisterPageBL;
 import steps.cart_steps.CartPageBL;
@@ -39,17 +40,8 @@ public class HeaderPageUnloginedBL {
         return this;
     }
 
-    public HeaderPageUnloginedBL clickOnEuroButton() {
-        headerPageUnlogined.getEuroButton().click();
-        return this;
-    }
-
-    public HeaderPageUnloginedBL clickOnPoundsButton(){
-        headerPageUnlogined.getPoundsButton().click();
-        return this;
-    }
-    public HeaderPageUnloginedBL clickOnDollarButton(){
-        headerPageUnlogined.getDollarButton().click();
+    public HeaderPageUnloginedBL clickOnCommonCurrencyButton(String val) {
+        headerPageUnlogined.getCommonCurrencyButton(Currencys.get(val).name()).click();
         return this;
     }
 

@@ -1,6 +1,11 @@
 package opencart;
 
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import lombok.SneakyThrows;
 import navigation.Navigation;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import steps.HomePageBL;
 
@@ -9,33 +14,26 @@ import static enums.URLs.BASE_URL;
 
 public class ChangeCurrencyTest extends BaseTest {
 
-    @Test
-    public void successChangeCurrencyToEuroOnHomePageTest() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
-        HomePageBL homePageBL = new HomePageBL();
-        homePageBL.getHeaderPageUnloginedBL()
-                .clickOnCurrencyButton()
-                .clickOnEuroButton();
-        homePageBL.successfulChangeCurrencyCheck("€");
+    @DataProvider(name = "data-provider")
+    public Object[][] dpMethod(){
+        return new Object[][] {{"€"},{"$"},{"£"}};
     }
 
-    @Test
-    public void successChangeCurrencyToPoundsOnHomePageTest() {
+    @BeforeClass
+    public void navigate()
+    {
         new Navigation().navigateToUrl(BASE_URL.getValue());
-        HomePageBL homePageBL = new HomePageBL();
-        homePageBL.getHeaderPageUnloginedBL()
-                .clickOnCurrencyButton()
-                .clickOnPoundsButton();
-        homePageBL.successfulChangeCurrencyCheck("£");
     }
 
-    @Test
-    public void successChangeCurrencyToDollarOnHomePageTest() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
+    @Severity(SeverityLevel.NORMAL)
+    @Test (dataProvider = "data-provider")
+    public void successChangeCurrencyOnHomePageTest2(String val)
+    {
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.getHeaderPageUnloginedBL()
-                .clickOnCurrencyButton()
-                .clickOnDollarButton();
-        homePageBL.successfulChangeCurrencyCheck("$");
+                .clickOnCurrencyButton();
+        homePageBL.getHeaderPageUnloginedBL().clickOnCommonCurrencyButton(val);
+        homePageBL.successfulChangeCurrencyCheck(val);
     }
+
 }

@@ -11,9 +11,9 @@ import steps.adminUtils_steps.AdminLoginPageBL;
 import static enums.URLs.ADMIN_URL;
 
 public class AdminLoginTest extends BaseTest {
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.CRITICAL)
     @Test
-    public void loginAdminWithValidAdminTest() throws InterruptedException {
+    public void loginAdminWithValidAdminTest() {
         new Navigation().navigateToUrl(ADMIN_URL.getValue());
         AdminLoginPageBL adminLoginPageBL = new AdminLoginPageBL();
         adminLoginPageBL.loginValidAdmin();
