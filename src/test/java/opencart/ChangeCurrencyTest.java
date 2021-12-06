@@ -1,6 +1,7 @@
 package opencart;
 
 import navigation.Navigation;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import steps.HomePageBL;
 
@@ -8,10 +9,14 @@ import steps.HomePageBL;
 import static enums.URLs.BASE_URL;
 
 public class ChangeCurrencyTest extends BaseTest {
+    @BeforeClass
+    public void navigate()
+    {
+        new Navigation().navigateToUrl(BASE_URL.getValue());
+    }
 
     @Test
     public void successChangeCurrencyToEuroOnHomePageTest() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.getHeaderPageUnloginedBL()
                 .clickOnCurrencyButton()
@@ -21,7 +26,6 @@ public class ChangeCurrencyTest extends BaseTest {
 
     @Test
     public void successChangeCurrencyToPoundsOnHomePageTest() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.getHeaderPageUnloginedBL()
                 .clickOnCurrencyButton()
@@ -31,7 +35,6 @@ public class ChangeCurrencyTest extends BaseTest {
 
     @Test
     public void successChangeCurrencyToDollarOnHomePageTest() {
-        new Navigation().navigateToUrl(BASE_URL.getValue());
         HomePageBL homePageBL = new HomePageBL();
         homePageBL.getHeaderPageUnloginedBL()
                 .clickOnCurrencyButton()
